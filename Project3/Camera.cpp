@@ -70,7 +70,20 @@ void Camera::Inputs(GLFWwindow* window) {
 	//granici wall 11
 	if (Position.x > 2.9f && Position.x < 4.1f && Position.z > 19.0f && Position.z < 19.2f) { Position.z = 19.2f; }
 	if (Position.x > 2.8f && Position.x < 2.9f && Position.z > 8.8f && Position.z < 19.2f) { Position.x = 2.8f; }
-	if (Position.x > 4.1f && Position.x < 4.2f && Position.z > 8.8f && Position.z < 19.2f) { Position.x = 4.2f; }
+	if (Position.x > 4.1f && Position.x < 4.2f && Position.z > 8.8f && Position.z < 19.2f) { Position.x = 4.2f; }	
+	//granici wall 12
+	if (Position.x > 0.9f && Position.x < 2.1f && Position.z > 15.8f && Position.z < 15.9f) { Position.z = 15.8f; }
+	if (Position.x > 0.9f && Position.x < 2.1f && Position.z > 23.1f && Position.z < 23.2f) { Position.z = 23.2f; }
+	if (Position.x > 0.8f && Position.x < 0.9f && Position.z > 16.0f && Position.z < 23.0f) { Position.x = 0.8f; }
+	if (Position.x > 2.1f && Position.x < 2.2f && Position.z > 16.0f && Position.z < 23.0f) { Position.x = 2.2f; }
+	//granici wall 13
+	if (Position.x > -4.1f && Position.x < 1.1f && Position.z > 18.8f && Position.z < 18.9f) { Position.z = 18.8f; }
+	if (Position.x > -4.1f && Position.x < 1.1f && Position.z > 20.0f && Position.z < 20.2f) { Position.z = 20.2f; }
+	if (Position.x > -4.2f && Position.x < -4.1f && Position.z > 18.9f && Position.z < 20.1f) { Position.x = -4.2f; }
+	//granici wall 14
+	if (Position.x > -2.1f && Position.x < 0.1f && Position.z > 15.1f && Position.z < 15.2f) { Position.z = 15.2f; }
+	if (Position.x > -2.2f && Position.x < -2.1f && Position.z > 8.9f && Position.z < 15.1f) { Position.x = -2.2f; }
+	if (Position.x > 0.1f && Position.x < 0.2f && Position.z > 8.9f && Position.z < 15.1f) { Position.x = 0.2f; }
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 	{
