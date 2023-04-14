@@ -138,7 +138,7 @@ int main() {
 
 		glEnable(GL_DEPTH_TEST);
 
-		glm::vec3 camPos = glm::vec3(24.0f, 0.0f, 24.0f);
+		glm::vec3 camPos = glm::vec3(-24.0f, 0.0f, 24.0f);
 
 		Camera camera(width, height, camPos);
 		Camera MenuCamera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
