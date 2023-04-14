@@ -1,0 +1,1 @@
+H:\программирование\c++\cmake\Project3\x64\Debug\Project3.exe
