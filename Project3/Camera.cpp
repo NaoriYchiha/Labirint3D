@@ -67,7 +67,10 @@ void Camera::Inputs(GLFWwindow* window) {
 	if (Position.x > 17.9f && Position.x < 19.1f && Position.z > 12.8f && Position.z < 12.9f) { Position.z = 12.8f; }
 	if (Position.x > 17.8f && Position.x < 17.9f && Position.z > 12.9f && Position.z < 15.1f) { Position.x = 17.8f; }
 	if (Position.x > 19.1f && Position.x < 19.2f && Position.z > 12.9f && Position.z < 15.1f) { Position.x = 19.2f; }
-
+	//granici wall 11
+	if (Position.x > 2.9f && Position.x < 4.1f && Position.z > 19.0f && Position.z < 19.2f) { Position.z = 19.2f; }
+	if (Position.x > 2.8f && Position.x < 2.9f && Position.z > 8.8f && Position.z < 19.2f) { Position.x = 2.8f; }
+	if (Position.x > 4.1f && Position.x < 4.2f && Position.z > 8.8f && Position.z < 19.2f) { Position.x = 4.2f; }
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 	{

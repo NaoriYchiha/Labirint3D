@@ -1,6 +1,2 @@
-﻿  main.cpp
-H:\программирование\c++\cmake\Project3\main.cpp(64,26): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
-H:\программирование\c++\cmake\Project3\main.cpp(76,27): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
-H:\программирование\c++\cmake\Project3\main.cpp(90,26): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
-H:\программирование\c++\cmake\Project3\main.cpp(104,29): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
-  Project3.vcxproj -> H:\программирование\c++\cmake\Project3\x64\Debug\Project3.exe
+﻿  Camera.cpp
+  Project3.vcxproj -> H:\программирование\c++\Labirint3D\Project3\x64\Debug\Project3.exe
