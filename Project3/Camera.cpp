@@ -164,6 +164,55 @@ void Camera::Inputs(GLFWwindow* window) {
 	if (Position.x > -8.1f && Position.x < -5.9f && Position.z > 1.1f && Position.z < 1.2f) { Position.z = 1.2f; }
 	if (Position.x > -5.9f && Position.x < -5.8f && Position.z > -5.1f && Position.z < 1.1f) { Position.x = -5.8f; }
 	if (Position.x > -8.2f && Position.x < -8.1f && Position.z > -5.1f && Position.z < 1.1f) { Position.x = -8.2f; }
+	//granici wall 34
+	if (Position.x > -5.2f && Position.x < -5.1f && Position.z > -5.1f && Position.z < 2.1f) { Position.x = -5.2f; }
+	if (Position.x > -3.9f && Position.x < -3.8f && Position.z > -5.1f && Position.z < 2.1f) { Position.x = -3.8f; }
+	//granici wall 35
+	if (Position.x > -8.1f && Position.x < -3.9f && Position.z > 1.8f && Position.z < 1.9f) { Position.z = 1.8f; }
+	if (Position.x > -8.1f && Position.x < -3.9f && Position.z > 3.1f && Position.z < 3.2f) { Position.z = 3.2f; }
+	if (Position.x > -3.9f && Position.x < -3.8f && Position.z > 1.9f && Position.z < 3.1f) { Position.x = -3.8f; }
+	if (Position.x > -8.2f && Position.x < -8.1f && Position.z > 1.9f && Position.z < 3.1f) { Position.x = -8.2f; }
+	//granici wall 36
+	if (Position.x > -2.1f && Position.x < -0.9f && Position.z > -0.2f && Position.z < -0.1f) { Position.z = -0.2f; }
+	if (Position.x > -2.2f && Position.x < -2.1f && Position.z > -0.1f && Position.z < 8.1f) { Position.x = -2.2f; }
+	if (Position.x > -0.9f && Position.x < -0.8f && Position.z > -0.1f && Position.z < 8.1f) { Position.x = -0.8f; }
+	//granici wall 37
+	if (Position.x > 4.9f && Position.x < 6.1f && Position.z > 1.1f && Position.z < 1.2f) { Position.z = 1.2f; }
+	if (Position.x > 6.1f && Position.x < 6.2f && Position.z > -5.1f && Position.z < 1.1f) { Position.x = 6.2f; }
+	if (Position.x > 4.8f && Position.x < 4.9f && Position.z > -5.1f && Position.z < 1.1f) { Position.x = 4.8f; }
+	//granici wall 38
+	if (Position.x > 4.9f && Position.x < 6.1f && Position.z > 2.8f && Position.z < 2.9f) { Position.z = 2.8f; }
+	if (Position.x > 6.1f && Position.x < 6.2f && Position.z > 2.9f && Position.z < 8.1f) { Position.x = 6.2f; }
+	if (Position.x > 4.8f && Position.x < 4.9f && Position.z > 2.9f && Position.z < 8.1f) { Position.x = 4.8f; }
+	//granici wall 39
+	if (Position.x > -0.1f && Position.x < 6.1f && Position.z > 1.8f && Position.z < 1.9f) { Position.z = 1.8f; }
+	if (Position.x > -0.1f && Position.x < 6.1f && Position.z > 3.1f && Position.z < 3.2f) { Position.z = 3.2f; }
+	if (Position.x > 6.1f && Position.x < 6.2f && Position.z > 1.9f && Position.z < 3.1f) { Position.x = 6.2f; }
+	if (Position.x > -0.2f && Position.x < -0.1f && Position.z > 1.9f && Position.z < 3.1f) { Position.x = -0.2f; }
+	//granici wall 40
+	if (Position.x > 6.9f && Position.x < 8.1f && Position.z > -2.2f && Position.z < -2.1f) { Position.z = -2.2f; }
+	if (Position.x > 6.9f && Position.x < 8.1f && Position.z > 6.1f && Position.z < 6.2f) { Position.z = 6.2f; }
+	if (Position.x > 6.8f && Position.x < 6.9f && Position.z > -2.1f && Position.z < 6.1f) { Position.x = 6.8f; }
+	if (Position.x > 8.1f && Position.x < 8.2f && Position.z > -2.1f && Position.z < 6.1f) { Position.x = 8.2f; }
+	//granici wall 41
+	if (Position.x > 7.9f && Position.x < 17.1f && Position.z > 0.8f && Position.z < 0.9f) { Position.z = 0.8f; }
+	if (Position.x > 7.9f && Position.x < 17.1f && Position.z > 2.1f && Position.z < 2.2f) { Position.z = 2.2f; }
+	if (Position.x > 17.1f && Position.x < 17.2f && Position.z > 0.9f && Position.z < 2.1f) { Position.x = 17.2f; }
+	//granici wall 42
+	if (Position.x > 15.8f && Position.x < 15.9f && Position.z > -5.1f && Position.z < 1.1f) { Position.x = 15.8f; }
+	if (Position.x > 17.1f && Position.x < 17.2f && Position.z > -5.1f && Position.z < 1.1f) { Position.x = 17.2f; }
+	//granici wall 43
+	if (Position.x > 15.9f && Position.x < 17.1f && Position.z > 2.8f && Position.z < 2.9f) { Position.z = 2.8f; }
+	if (Position.x > 15.8f && Position.x < 15.9f && Position.z > 2.9f && Position.z < 8.1f) { Position.x = 15.8f; }
+	if (Position.x > 17.1f && Position.x < 17.2f && Position.z > 2.9f && Position.z < 8.1f) { Position.x = 17.2f; }
+	//granici wall 44
+	if (Position.x > 18.9f && Position.x < 25.1f && Position.z > 0.8f && Position.z < 0.9f) { Position.z = 0.8f; }
+	if (Position.x > 18.9f && Position.x < 25.1f && Position.z > 2.1f && Position.z < 2.2f) { Position.z = 2.2f; }
+	//granici wall 45
+	if (Position.x > 17.9f && Position.x < 19.1f && Position.z > -2.2f && Position.z < -2.1f) { Position.z = -2.2f; }
+	if (Position.x > 17.9f && Position.x < 19.1f && Position.z > 6.1f && Position.z < 6.2f) { Position.z = 6.2f; }
+	if (Position.x > 17.8f && Position.x < 17.9f && Position.z > -2.1f && Position.z < 6.1f) { Position.x = 17.8f; }
+	if (Position.x > 19.1f && Position.x < 19.2f && Position.z > -2.1f && Position.z < 6.1f) { Position.x = 19.2f; }
 
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
