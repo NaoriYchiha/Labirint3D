@@ -166,9 +166,10 @@
   <ItemGroup>
     <Image Include="C:\Users\lolol\Downloads\qwerty.png" />
     <Image Include="floor.png" />
-    <Image Include="kon.png" />
     <Image Include="preview.png" />
     <Image Include="wall.png" />
+    <Image Include="finish.png" />
+    <Image Include="wall1.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

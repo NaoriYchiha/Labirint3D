@@ -125,15 +125,15 @@ int main() {
 		ButtonEBO.Unbind();
 
 		//Textures(image)
-		Texture KAMILLA("qwerty.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
-		KAMILLA.texUnit(shaderProgram, "tex0", 0);
+		Texture Finish("finish.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+		Finish.texUnit(shaderProgram, "tex0", 0);
 		Texture Floor("floor.png", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGBA, GL_UNSIGNED_BYTE);
 		Floor.texUnit(shaderProgram, "tex1", 1);
 		Texture Wall("wall.png", GL_TEXTURE_2D, GL_TEXTURE2, GL_RGBA, GL_UNSIGNED_BYTE);
 		Wall.texUnit(shaderProgram, "tex2", 2);
 		Texture Preview("preview.png", GL_TEXTURE_2D, GL_TEXTURE3, GL_RGBA, GL_UNSIGNED_BYTE);
 		Preview.texUnit(shaderProgram, "tex3", 3);
-		Texture Button1("kon.png", GL_TEXTURE_2D, GL_TEXTURE4, GL_RGBA, GL_UNSIGNED_BYTE);
+		Texture Button1("wall1.png", GL_TEXTURE_2D, GL_TEXTURE4, GL_RGBA, GL_UNSIGNED_BYTE);
 		Button1.texUnit(shaderProgram, "tex4", 4);
 
 		glEnable(GL_DEPTH_TEST);
@@ -175,7 +175,7 @@ int main() {
 				camera.Inputs(window);
 				camera.Matrix(45.0f, 0.01f, 100.0f, shaderProgram, "camMatrix");
 
-				KAMILLA.Bind();
+				Finish.Bind();
 				VAO1.Bind();
 				glDrawElements(GL_TRIANGLES, SizeCubeIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 
@@ -216,7 +216,7 @@ int main() {
 	VBO3.Delete();
 	EBO3.Delete();
 	shaderProgram.Delete();
-	KAMILLA.Delete();
+	Finish.Delete();
 	Floor.Delete();
 	Wall.Delete();
 	Preview.Delete();

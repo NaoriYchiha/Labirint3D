@@ -99,10 +99,13 @@
     <Image Include="wall.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
-    <Image Include="kon.png">
+    <Image Include="preview.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
-    <Image Include="preview.png">
+    <Image Include="finish.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="wall1.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
   </ItemGroup>
