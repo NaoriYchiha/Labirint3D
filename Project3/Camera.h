@@ -29,9 +29,7 @@ public:
 	Camera(int width, int height, glm::vec3 position);
 	void Matrix(float FOVdeg, float nearPlane, float farPlane, Shader& shader, const char* uniform);
 	void Inputs(GLFWwindow* window);
-	void MenuInputs(GLFWwindow* window);
-	bool isMenuDisplayed(GLFWwindow* window);
-	
+	bool player_reached_finish();
 };
 
 #endif

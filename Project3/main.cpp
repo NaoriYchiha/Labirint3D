@@ -6,6 +6,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+
 #include "Texture.h"
 #include "ShaderClass.h"
 #include "VBO.h"
@@ -110,19 +111,19 @@ int main() {
 		MenuVAO.Unbind();
 		MenuVBO.Unbind();
 		MenuEBO.Unbind();
-		
-		VAO ButtonVAO;
-		ButtonVAO.Bind();
 
-		VBO ButtonVBO(ButtonVertices, sizeof(SizeButtonVertices));
-		EBO ButtonEBO(ButtonIndices, sizeof(SizeButtonIndices));
+		VAO FinishVAO;
+		FinishVAO.Bind();
 
-		ButtonVAO.LinkAttrib(ButtonVBO, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
-		ButtonVAO.LinkAttrib(ButtonVBO, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-		ButtonVAO.LinkAttrib(ButtonVBO, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-		ButtonVAO.Unbind();
-		ButtonVBO.Unbind();
-		ButtonEBO.Unbind();
+		VBO FinishVBO(FinishVertices, SizeFinishVertices);
+		EBO FinishEBO(FinishIndices, SizeFinishIndices);
+
+		FinishVAO.LinkAttrib(FinishVBO, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
+		FinishVAO.LinkAttrib(FinishVBO, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+		FinishVAO.LinkAttrib(FinishVBO, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+		FinishVAO.Unbind();
+		FinishVBO.Unbind();
+		FinishEBO.Unbind();
 
 		//Textures(image)
 		Texture Finish("finish.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
@@ -133,7 +134,7 @@ int main() {
 		Wall.texUnit(shaderProgram, "tex2", 2);
 		Texture Preview("preview.png", GL_TEXTURE_2D, GL_TEXTURE3, GL_RGBA, GL_UNSIGNED_BYTE);
 		Preview.texUnit(shaderProgram, "tex3", 3);
-		Texture Button1("wall1.png", GL_TEXTURE_2D, GL_TEXTURE4, GL_RGBA, GL_UNSIGNED_BYTE);
+		Texture Button1("wall.png", GL_TEXTURE_2D, GL_TEXTURE4, GL_RGBA, GL_UNSIGNED_BYTE);
 		Button1.texUnit(shaderProgram, "tex4", 4);
 
 		glEnable(GL_DEPTH_TEST);
@@ -142,70 +143,84 @@ int main() {
 
 		Camera camera(width, height, camPos);
 		Camera MenuCamera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
+		Camera FinishCamera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
 
 		bool isMenuDisplayed = true;
-
+		
 		GLenum error = glGetError();
 		if (error != GL_NO_ERROR) {
 			std::cout << "OpenGL error: " << error << std::endl;
 		}
+	
 
 		//Main while loop
-		while (!glfwWindowShouldClose(window))
+while (!glfwWindowShouldClose(window))	
+{
+	glClearColor(0.7f, 0.74f, 1.0f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	if (isMenuDisplayed) // Если флаг установлен в true, отображаем меню
+	{
+		shaderProgram.Activate();
+		MenuCamera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
+
+		Preview.Bind();
+		MenuVAO.Bind();
+		glDrawElements(GL_TRIANGLES, SizeMenuIndices / sizeof(int), GL_UNSIGNED_INT, 0);
+
+	}
+	
+	else // Если флаг установлен в false, отображаем игровой мир
+	{
+		if (camera.player_reached_finish())
 		{
-			glClearColor(0.7f, 0.74f, 1.0f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			if (isMenuDisplayed) // Если флаг установлен в true, отображаем меню
-			{
-				shaderProgram.Activate();
-				MenuCamera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
+			shaderProgram.Activate();
+			FinishCamera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
 
-				Preview.Bind();
-				MenuVAO.Bind();
-				glDrawElements(GL_TRIANGLES, SizeMenuIndices / sizeof(int), GL_UNSIGNED_INT, 0);
-		
-				Button1.Bind();
-				ButtonVAO.Bind();
-				glDrawElements(GL_TRIANGLES, SizeButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
-
-			}
-			else // Если флаг установлен в false, отображаем игровой мир
-			{
-				shaderProgram.Activate();
-				camera.Inputs(window);
-				camera.Matrix(45.0f, 0.01f, 100.0f, shaderProgram, "camMatrix");
-
-				Finish.Bind();
-				VAO1.Bind();
-				glDrawElements(GL_TRIANGLES, SizeCubeIndices / sizeof(int), GL_UNSIGNED_INT, 0);
-
-				Floor.Bind();
-				VAO2.Bind();
-				glDrawElements(GL_TRIANGLES, SizeFloorIndices / sizeof(int), GL_UNSIGNED_INT, 0);
-
-				Wall.Bind();
-				VAO3.Bind();
-				glDrawElements(GL_TRIANGLES, SizeWallIndices / sizeof(int), GL_UNSIGNED_INT, 0);
-			}
-
-			glfwSwapBuffers(window);
-			//Take care of all GLFW events
-			glfwPollEvents();
-
-			if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS)
-			{
-			isMenuDisplayed = false; // Если пользователь нажал Enter, переключаем флаг в false
-			};
+			Finish.Bind();
+			FinishVAO.Bind();
+			glDrawElements(GL_TRIANGLES, SizeFinishIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 		}
+		else 
+		{
+			shaderProgram.Activate();
+			camera.Inputs(window);
+			camera.Matrix(45.0f, 0.01f, 100.0f, shaderProgram, "camMatrix");
+
+			Finish.Bind();
+			VAO1.Bind();
+			glDrawElements(GL_TRIANGLES, SizeCubeIndices / sizeof(int), GL_UNSIGNED_INT, 0);
+
+			Floor.Bind();
+			VAO2.Bind();
+			glDrawElements(GL_TRIANGLES, SizeFloorIndices / sizeof(int), GL_UNSIGNED_INT, 0);
+
+			Wall.Bind();
+			VAO3.Bind();
+			glDrawElements(GL_TRIANGLES, SizeWallIndices / sizeof(int), GL_UNSIGNED_INT, 0);
+		}
+
+	}
+
+
+	glfwSwapBuffers(window);
+		//Take care of all GLFW events
+	glfwPollEvents();
+
+	if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS)
+	{
+		isMenuDisplayed = false;// Если пользователь нажал Enter, переключаем флаг в false
+	};
+}
 
 	
 
 	MenuVAO.Delete();
 	MenuVBO.Delete();
 	MenuEBO.Delete();
-	ButtonVAO.Delete();
-	ButtonVBO.Delete();
-	ButtonEBO.Delete();
+	FinishVAO.Delete();
+	FinishVBO.Delete();
+	FinishEBO.Delete();
 	VAO1.Delete();
 	VBO1.Delete();
 	EBO1.Delete();

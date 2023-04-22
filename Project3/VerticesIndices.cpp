@@ -1102,15 +1102,15 @@ GLuint MenuIndices[] =
 	 0, 3, 2
 };
 
-GLfloat ButtonVertices[] =
+GLfloat FinishVertices[] =
 {
-	-0.5f, -0.5f, 0.01f,		0.0f, 1.0f, 0.0f,		0.0f, 0.0f,//0
-	-0.5f, 0.5f, 0.01f,			0.0f, 1.0f, 0.0f,		0.0f, 1.0f,//1
-	0.5f, 0.5f, 0.01f,			0.0f, 1.0f, 0.0f,		1.0f, 1.0f,//2
-	0.5f, -0.5f, 0.01f,			0.0f, 1.0f, 0.0f,		1.0f, 0.0f//3
+	-1.0f, -1.0f, 0.0f,			0.0f, 1.0f, 0.0f,		0.0f, 0.0f,//0
+	-1.0f, 1.0f, 0.0f,			0.0f, 1.0f, 0.0f,		0.0f, 1.0f,//1
+	1.0f, 1.0f, 0.0f,			0.0f, 1.0f, 0.0f,		1.0f, 1.0f,//2
+	1.0f, -1.0f, 0.0f,			0.0f, 1.0f, 0.0f,		1.0f, 0.0f//3
 };
 
-GLuint ButtonIndices[] =
+GLuint FinishIndices[] =
 {
 	 0, 2, 1,
 	 0, 3, 2
@@ -1130,6 +1130,6 @@ const GLuint SizeWallIndices = sizeof(WallIndices);
 const GLfloat SizeMenuVertices = sizeof(MenuVertices);
 const GLuint SizeMenuIndices = sizeof(MenuIndices);
 
-const GLfloat SizeButtonVertices = sizeof(ButtonVertices);
-const GLuint SizeButtonIndices = sizeof(ButtonIndices);
+const GLfloat SizeFinishVertices = sizeof(FinishVertices);
+const GLuint SizeFinishIndices = sizeof(FinishIndices);
 

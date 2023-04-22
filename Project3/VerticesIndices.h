@@ -15,8 +15,8 @@ extern  GLuint WallIndices[];
 extern  GLfloat MenuVertices[];
 extern  GLuint MenuIndices[];
 
-extern  GLfloat ButtonVertices[];
-extern  GLuint ButtonIndices[];
+extern  GLfloat FinishVertices[];
+extern  GLuint FinishIndices[];
 
 extern const GLfloat SizeCubeVertices;
 extern const GLuint SizeCubeIndices;
@@ -30,8 +30,8 @@ extern const GLuint SizeWallIndices;
 extern const GLfloat SizeMenuVertices;
 extern const GLuint SizeMenuIndices;
 
-extern const GLfloat SizeButtonVertices;
-extern const GLuint SizeButtonIndices;
+extern const GLfloat SizeFinishVertices;
+extern const GLuint SizeFinishIndices;
 
 
 #endif

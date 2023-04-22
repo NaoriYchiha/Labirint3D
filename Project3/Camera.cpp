@@ -16,15 +16,18 @@ void Camera::Matrix(float FOVdeg, float nearPlane, float farPlane, Shader& shade
 	glUniformMatrix4fv(glGetUniformLocation(shader.ID, uniform), 1, GL_FALSE, glm::value_ptr(projection * view));
 }
 
+
+
 void Camera::Inputs(GLFWwindow* window) {
-	
+
+
 	float jumpSpeed = 0.03f;
 	//granici polya
 	if (Position.x < -24.8f) Position.x = -24.8f;
 	if (Position.x > 24.9f) Position.x = 24.9f;
 	if (Position.z < -4.8f) Position.z = -4.8f;
 	if (Position.z > 24.9f) Position.z = 24.9f;
-	if (Position.y < 1.0f ) Position.y = 1.0f;
+	if (Position.y < 1.0f) Position.y = 1.0f;
 	//granici wall 1
 	if (Position.x > -20.2f && Position.x < 25.0f && Position.z > 7.8f && Position.z < 8.0f) { Position.z = 7.8f; }
 	if (Position.x > -20.2f && Position.x < 25.0f && Position.z > 9.0f && Position.z < 9.2f) { Position.z = 9.2f; }
@@ -70,7 +73,7 @@ void Camera::Inputs(GLFWwindow* window) {
 	//granici wall 11
 	if (Position.x > 2.9f && Position.x < 4.1f && Position.z > 19.0f && Position.z < 19.2f) { Position.z = 19.2f; }
 	if (Position.x > 2.8f && Position.x < 2.9f && Position.z > 8.8f && Position.z < 19.2f) { Position.x = 2.8f; }
-	if (Position.x > 4.1f && Position.x < 4.2f && Position.z > 8.8f && Position.z < 19.2f) { Position.x = 4.2f; }	
+	if (Position.x > 4.1f && Position.x < 4.2f && Position.z > 8.8f && Position.z < 19.2f) { Position.x = 4.2f; }
 	//granici wall 12
 	if (Position.x > 0.9f && Position.x < 2.1f && Position.z > 15.8f && Position.z < 15.9f) { Position.z = 15.8f; }
 	if (Position.x > 0.9f && Position.x < 2.1f && Position.z > 23.1f && Position.z < 23.2f) { Position.z = 23.2f; }
@@ -219,6 +222,8 @@ void Camera::Inputs(GLFWwindow* window) {
 	if (Position.x > 23.6f && Position.x < 23.7f && Position.z > 2.9f && Position.z < 8.1f) { Position.x = 23.7f; }
 
 
+
+
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 	{
 		Position += speed * Orientation;
@@ -243,7 +248,7 @@ void Camera::Inputs(GLFWwindow* window) {
 	{
 		Position += jumpSpeed * Up;
 		if (Position.y > 1.5f) Position -= jumpSpeed * 2.0f * Up;
-	}	
+	}
 	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_RELEASE)
 	{
 		Position -= jumpSpeed * Up * Up * 2.0f;
@@ -279,7 +284,7 @@ void Camera::Inputs(GLFWwindow* window) {
 
 		glm::vec3 newOrientation = glm::rotate(Orientation, glm::radians(-rotX), glm::normalize(glm::cross(Orientation, Up)));
 
-		if (!(glm::angle(newOrientation, Up) <= glm::radians(5.0f) or glm::angle(newOrientation, -Up) <= glm::radians(5.0f))) 
+		if (!(glm::angle(newOrientation, Up) <= glm::radians(5.0f) or glm::angle(newOrientation, -Up) <= glm::radians(5.0f)))
 		{
 			Orientation = newOrientation;
 		}
@@ -287,11 +292,19 @@ void Camera::Inputs(GLFWwindow* window) {
 
 		glfwSetCursorPos(window, (width / 2), (height / 2));
 	}
-	
+
 	else if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE)
 	{
 		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 		firstClick = true;
 	}
 	
+}
+
+bool Camera::player_reached_finish() {
+	if (Position.x >= 23.6f && Position.x <= 25.1f && Position.y >= 0.51f && Position.y <= 2.51f && Position.z >= 7.5f && Position.z <= 8.1f) {
+		return true;
+	}
+	else
+		return false;
 }

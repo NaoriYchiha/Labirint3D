@@ -105,8 +105,5 @@
     <Image Include="finish.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
-    <Image Include="wall1.png">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
   </ItemGroup>
 </Project>

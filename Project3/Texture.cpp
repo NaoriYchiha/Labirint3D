@@ -8,7 +8,10 @@ Texture::Texture(const char* image, GLenum texType, GLenum slot, GLenum format, 
 	int widthQWERTY, heightQWERTY, numColCh;
 	stbi_set_flip_vertically_on_load(true);
 	unsigned char* bytes = stbi_load(image, &widthQWERTY, &heightQWERTY, &numColCh, 0);
-	
+	if (!bytes) {
+		std::cerr << "Failed to load texture" << std::endl;
+		return;
+	}
 	glGenTextures(1, &ID);
 	glActiveTexture(slot);
 	glBindTexture(type, ID);
