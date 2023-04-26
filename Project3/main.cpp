@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <stb/stb_image.h.txt>
@@ -58,6 +59,7 @@ int main() {
 
 		glfwSetWindowIcon(window, 2, images);
 
+		std::ofstream file("time.txt");
 
 		Shader shaderProgram("default.vert", "default.frag");
 		VAO VAO1;
@@ -139,14 +141,16 @@ int main() {
 
 		glEnable(GL_DEPTH_TEST);
 
-		glm::vec3 camPos = glm::vec3(24.0f, 0.0f, 6.0f);
+		glm::vec3 startCamPos = glm::vec3(24.0f, 0.0f, 24.0f);
+		glm::vec3 startOrientation = glm::vec3(0.0f, 0.0f, -0.1f);
 
-		Camera camera(width, height, camPos);
+		double lastTime = glfwGetTime();
+		bool isMenuDisplayed = true;
+
+		Camera camera(width, height, startCamPos);
 		Camera MenuCamera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
 		Camera FinishCamera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
 
-		bool isMenuDisplayed = true;
-		
 		GLenum error = glGetError();
 		if (error != GL_NO_ERROR) {
 			std::cout << "OpenGL error: " << error << std::endl;
@@ -158,6 +162,9 @@ while (!glfwWindowShouldClose(window))
 {
 	glClearColor(0.7f, 0.74f, 1.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	double currentTime = glfwGetTime();
+	std::cout << "Time elapsed: " << currentTime - lastTime << " seconds." << std::endl;
 
 	if (isMenuDisplayed) // Если флаг установлен в true, отображаем меню
 	{
@@ -180,6 +187,15 @@ while (!glfwWindowShouldClose(window))
 			Finish.Bind();
 			FinishVAO.Bind();
 			glDrawElements(GL_TRIANGLES, SizeFinishIndices / sizeof(int), GL_UNSIGNED_INT, 0);
+
+			if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
+			{
+				camera.Position = startCamPos;
+				camera.Orientation = startOrientation;
+				isMenuDisplayed = true;// Если пользователь нажал Enter, переключаем флаг в false
+				lastTime = currentTime;
+				file << "Finish time: " << lastTime << " seconds." << std::endl;
+			};
 		}
 		else 
 		{
@@ -198,8 +214,8 @@ while (!glfwWindowShouldClose(window))
 			Wall.Bind();
 			VAO3.Bind();
 			glDrawElements(GL_TRIANGLES, SizeWallIndices / sizeof(int), GL_UNSIGNED_INT, 0);
+			
 		}
-
 	}
 
 
@@ -214,7 +230,7 @@ while (!glfwWindowShouldClose(window))
 }
 
 	
-
+	file.close();
 	MenuVAO.Delete();
 	MenuVBO.Delete();
 	MenuEBO.Delete();
