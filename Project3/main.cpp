@@ -117,6 +117,19 @@ int main() {
 		MenuVBO.Unbind();
 		MenuEBO.Unbind();
 
+		VAO SettingsMenuVAO;
+		SettingsMenuVAO.Bind();
+
+		VBO SettingsMenuVBO(SettingsMenuVertices, SizeSettingsMenuVertices);
+		EBO SettingsMenuEBO(SettingsMenuIndices, SizeSettingsMenuIndices);
+
+		SettingsMenuVAO.LinkAttrib(SettingsMenuVBO, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
+		SettingsMenuVAO.LinkAttrib(SettingsMenuVBO, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+		SettingsMenuVAO.LinkAttrib(SettingsMenuVBO, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+		SettingsMenuVAO.Unbind();
+		SettingsMenuVBO.Unbind();
+		SettingsMenuEBO.Unbind();
+
 		VAO FinishVAO;
 		FinishVAO.Bind();
 
@@ -155,6 +168,19 @@ int main() {
 		ExitButtonVAO.Unbind();
 		ExitButtonVBO.Unbind();
 		ExitButtonEBO.Unbind();
+		
+		VAO SettingsButtonVAO;
+		SettingsButtonVAO.Bind();
+
+		VBO SettingsButtonVBO(SettingsButtonVertices, SizeSettingsButtonVertices);
+		EBO SettingsButtonEBO(SettingsButtonIndices, SizeSettingsButtonIndices);
+
+		SettingsButtonVAO.LinkAttrib(SettingsButtonVBO, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
+		SettingsButtonVAO.LinkAttrib(SettingsButtonVBO, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+		SettingsButtonVAO.LinkAttrib(SettingsButtonVBO, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+		SettingsButtonVAO.Unbind();
+		SettingsButtonVBO.Unbind();
+		SettingsButtonEBO.Unbind();
 
 		//Textures(image)
 		Texture Finish("finish.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
@@ -169,6 +195,8 @@ int main() {
 		PlayButton.texUnit(shaderProgram, "tex4", 4);
 		Texture ExitButton("ExitButton.png", GL_TEXTURE_2D, GL_TEXTURE5, GL_RGBA, GL_UNSIGNED_BYTE);
 		ExitButton.texUnit(shaderProgram, "tex5", 5);
+		Texture SettingsButton("SettingsButton.png", GL_TEXTURE_2D, GL_TEXTURE5, GL_RGBA, GL_UNSIGNED_BYTE);
+		SettingsButton.texUnit(shaderProgram, "tex6", 5);
 
 		glEnable(GL_DEPTH_TEST);
 
@@ -180,6 +208,7 @@ int main() {
 
 		Camera camera(width, height, startCamPos);
 		Camera MenuCamera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
+		Camera SettingsCamera(width, height, glm::vec3(0.0f, 0.0f, 3.0f));
 		Camera FinishCamera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
 
 		GLenum error = glGetError();
@@ -187,14 +216,14 @@ int main() {
 			std::cout << "OpenGL error: " << error << std::endl;
 		}
 	
-
+		bool isSettingsMode = false;
 		//Main while loop
 while (!glfwWindowShouldClose(window))	
 {
 	glClearColor(0.7f, 0.74f, 1.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	double currentTime = glfwGetTime();
+	double currentTime;
 
 	if (MenuCamera.PlayButtonClick(window)) // Если флаг установлен в true, отображаем меню
 	{
@@ -209,6 +238,10 @@ while (!glfwWindowShouldClose(window))
 		PlayButtonVAO.Bind();
 		glDrawElements(GL_TRIANGLES, SizePlayButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 
+		SettingsButton.Bind();
+		SettingsButtonVAO.Bind();
+		glDrawElements(GL_TRIANGLES, SizeSettingsButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
+
 		ExitButton.Bind();
 		ExitButtonVAO.Bind();
 		glDrawElements(GL_TRIANGLES, SizeExitButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
@@ -217,10 +250,20 @@ while (!glfwWindowShouldClose(window))
 		{
 			glfwSetWindowShouldClose(window, GL_TRUE);
 		}
+		if (MenuCamera.SettingsButtonClick(window))
+		{
+				shaderProgram.Activate();
+				SettingsCamera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
+
+				Preview.Bind();
+				SettingsMenuVAO.Bind();
+				glDrawElements(GL_TRIANGLES, SizeSettingsMenuIndices / sizeof(int), GL_UNSIGNED_INT, 0);
+		}
 	}
 	
 	else // Если флаг установлен в false, отображаем игровой мир
 	{
+		double currentTime = glfwGetTime();
 		if (camera.player_reached_finish())
 		{
 			shaderProgram.Activate();
@@ -286,6 +329,12 @@ while (!glfwWindowShouldClose(window))
 	ExitButtonVAO.Delete();
 	ExitButtonVBO.Delete();
 	ExitButtonEBO.Delete();
+	SettingsButtonVAO.Delete();
+	SettingsButtonVBO.Delete();
+	SettingsButtonEBO.Delete();
+	SettingsMenuVAO.Delete();
+	SettingsMenuVBO.Delete();
+	SettingsMenuEBO.Delete();
 	VAO1.Delete();
 	VBO1.Delete();
 	EBO1.Delete();
@@ -302,6 +351,8 @@ while (!glfwWindowShouldClose(window))
 	Preview.Delete();
 	PlayButton.Delete();
 	ExitButton.Delete();
+	SettingsButton.Delete();
+
 
 	glfwDestroyWindow(window);
 	glfwTerminate();

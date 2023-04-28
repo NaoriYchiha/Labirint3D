@@ -1102,6 +1102,20 @@ GLuint MenuIndices[] =
 	 0, 3, 2
 };
 
+GLfloat SettingsMenuVertices[] =
+{
+	-1.0f, -1.0f, 2.0f,			0.0f, 1.0f, 0.0f,		0.0f, 0.0f,//0
+	-1.0f, 1.0f, 2.0f,			0.0f, 1.0f, 0.0f,		0.0f, 1.0f,//1
+	1.0f, 1.0f, 2.0f,			0.0f, 1.0f, 0.0f,		1.0f, 1.0f,//2
+	1.0f, -1.0f, 2.0f,			0.0f, 1.0f, 0.0f,		1.0f, 0.0f//3
+};
+
+GLuint SettingsMenuIndices[] =
+{
+	 0, 2, 1,
+	 0, 3, 2
+};
+
 GLfloat PlayButtonVertices[] =
 {
 	-0.15f, -0.05f, 0.01f,			0.0f, 1.0f, 0.0f,		0.0f, 0.0f,//0
@@ -1116,12 +1130,26 @@ GLuint PlayButtonIndices[] =
 	 0, 3, 2
 };
 
-GLfloat ExitButtonVertices[] =
+GLfloat SettingsButtonVertices[] =
 {
 	-0.15f, -0.31f, 0.01f,			0.0f, 1.0f, 0.0f,		0.0f, 0.0f,//0
 	-0.15f, -0.18f, 0.01f,			0.0f, 1.0f, 0.0f,		0.0f, 1.0f,//1
 	0.1f, -0.18f, 0.01f,			0.0f, 1.0f, 0.0f,		1.0f, 1.0f,//2
 	0.1f, -0.31f, 0.01f,			0.0f, 1.0f, 0.0f,		1.0f, 0.0f//3
+};
+
+GLuint SettingsButtonIndices[] =
+{
+	 0, 2, 1,
+	 0, 3, 2
+};
+
+GLfloat ExitButtonVertices[] =
+{
+	-0.15f, -0.57f, 0.01f,			0.0f, 1.0f, 0.0f,		0.0f, 0.0f,//0
+	-0.15f, -0.44f, 0.01f,			0.0f, 1.0f, 0.0f,		0.0f, 1.0f,//1
+	0.1f, -0.44f, 0.01f,			0.0f, 1.0f, 0.0f,		1.0f, 1.0f,//2
+	0.1f, -0.57f, 0.01f,			0.0f, 1.0f, 0.0f,		1.0f, 0.0f//3
 };
 
 GLuint ExitButtonIndices[] =
@@ -1167,3 +1195,8 @@ const GLuint SizePlayButtonIndices = sizeof(PlayButtonIndices);
 const GLfloat SizeExitButtonVertices = sizeof(ExitButtonVertices);
 const GLuint SizeExitButtonIndices = sizeof(ExitButtonIndices);
 
+const GLfloat SizeSettingsButtonVertices = sizeof(SettingsButtonVertices);
+const GLuint SizeSettingsButtonIndices = sizeof(SettingsButtonIndices);
+
+const GLfloat SizeSettingsMenuVertices = sizeof(SettingsMenuVertices);
+const GLuint SizeSettingsMenuIndices = sizeof(SettingsMenuIndices);

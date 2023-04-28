@@ -16,7 +16,11 @@ class Camera
 private:
 	bool m_wasMouseButtonPressed = false;
 	bool m_isMenuVisible = true;
+
 public:
+	bool m_wasSettingsMouseButtonPressed = false;
+	bool m_isSettingsMenuVisible = false;
+
 	glm::vec3 Position;
 	glm::vec3 Orientation = glm::vec3(0.0f, 0.0f, -0.1f);
 	glm::vec3 Up = glm::vec3(0.0f, 0.1f, 0.0f);
@@ -34,6 +38,7 @@ public:
 	void Inputs(GLFWwindow* window);
 	bool player_reached_finish();
 	bool PlayButtonClick(GLFWwindow* window);
+	bool SettingsButtonClick(GLFWwindow* window);
 	bool ExitButtonClick(GLFWwindow* window);
 };
 

@@ -168,6 +168,7 @@
     <Image Include="PlayButton.png" />
     <Image Include="floor.png" />
     <Image Include="preview.png" />
+    <Image Include="SettingsButton.png" />
     <Image Include="wall.png" />
     <Image Include="finish.png" />
   </ItemGroup>

@@ -330,13 +330,33 @@ bool Camera::PlayButtonClick(GLFWwindow* window) {
 	return m_isMenuVisible;
 }
 
+bool Camera::SettingsButtonClick(GLFWwindow* window) {
+
+	double xPos, yPos;
+	glfwGetCursorPos(window, &xPos, &yPos);
+	bool isMouseButtonPressed = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
+
+	if (isMouseButtonPressed && !m_wasSettingsMouseButtonPressed && !m_isSettingsMenuVisible && xPos >= width * 0.4088f && xPos <= width * 0.56f && yPos >= height * 0.593f && yPos <= height * 0.671f)
+	{
+		m_isSettingsMenuVisible = !m_isSettingsMenuVisible;
+	}
+	if (glfwGetKey(window, GLFW_KEY_BACKSPACE) == GLFW_PRESS)
+	{
+		m_isSettingsMenuVisible = !m_isSettingsMenuVisible;
+	}
+	m_wasMouseButtonPressed = isMouseButtonPressed;
+
+	return m_isSettingsMenuVisible;
+
+}
+
 bool Camera::ExitButtonClick(GLFWwindow* window) {
 
 	double xPos, yPos;
 	glfwGetCursorPos(window, &xPos, &yPos);
 	bool isMouseButtonPressed = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
 
-	if (isMouseButtonPressed && m_isMenuVisible && xPos >= width * 0.4088f && xPos <= width * 0.56f && yPos >= height * 0.593f && yPos <= height * 0.671f)
+	if (isMouseButtonPressed && m_isMenuVisible && xPos >= width * 0.4088f && xPos <= width * 0.56f && yPos >= height * 0.756f && yPos <= height * 0.841f)
 	{
 		return true;
 	}
