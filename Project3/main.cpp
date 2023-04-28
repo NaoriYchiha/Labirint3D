@@ -67,8 +67,8 @@ int main() {
 		Shader shaderProgram("default.vert", "default.frag");
 		VAO VAO1;
 		VAO1.Bind();
-		VBO VBO1(CubeVertices, SizeCubeVertices);
-		EBO EBO1(CubeIndices, SizeCubeIndices);
+		VBO VBO1(MapFinishVertices, SizeMapFinishVertices);
+		EBO EBO1(MapFinishIndices, SizeMapFinishIndices);
 
 		VAO1.LinkAttrib(VBO1, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
 		VAO1.LinkAttrib(VBO1, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
@@ -130,18 +130,31 @@ int main() {
 		FinishVBO.Unbind();
 		FinishEBO.Unbind();
 
-		VAO ButtonVAO;
-		ButtonVAO.Bind();
+		VAO PlayButtonVAO;
+		PlayButtonVAO.Bind();
 
-		VBO ButtonVBO(ButtonVertices, SizeButtonVertices);
-		EBO ButtonEBO(ButtonIndices, SizeButtonIndices);
+		VBO PlayButtonVBO(PlayButtonVertices, SizePlayButtonVertices);
+		EBO PlayButtonEBO(PlayButtonIndices, SizePlayButtonIndices);
 
-		ButtonVAO.LinkAttrib(ButtonVBO, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
-		ButtonVAO.LinkAttrib(ButtonVBO, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-		ButtonVAO.LinkAttrib(ButtonVBO, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-		ButtonVAO.Unbind();
-		ButtonVBO.Unbind();
-		ButtonEBO.Unbind();
+		PlayButtonVAO.LinkAttrib(PlayButtonVBO, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
+		PlayButtonVAO.LinkAttrib(PlayButtonVBO, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+		PlayButtonVAO.LinkAttrib(PlayButtonVBO, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+		PlayButtonVAO.Unbind();
+		PlayButtonVBO.Unbind();
+		PlayButtonEBO.Unbind();
+
+		VAO ExitButtonVAO;
+		ExitButtonVAO.Bind();
+
+		VBO ExitButtonVBO(ExitButtonVertices, SizeExitButtonVertices);
+		EBO ExitButtonEBO(ExitButtonIndices, SizeExitButtonIndices);
+
+		ExitButtonVAO.LinkAttrib(ExitButtonVBO, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
+		ExitButtonVAO.LinkAttrib(ExitButtonVBO, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+		ExitButtonVAO.LinkAttrib(ExitButtonVBO, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+		ExitButtonVAO.Unbind();
+		ExitButtonVBO.Unbind();
+		ExitButtonEBO.Unbind();
 
 		//Textures(image)
 		Texture Finish("finish.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
@@ -152,8 +165,10 @@ int main() {
 		Wall.texUnit(shaderProgram, "tex2", 2);
 		Texture Preview("preview.png", GL_TEXTURE_2D, GL_TEXTURE3, GL_RGBA, GL_UNSIGNED_BYTE);
 		Preview.texUnit(shaderProgram, "tex3", 3);
-		Texture Button1("button1.png", GL_TEXTURE_2D, GL_TEXTURE4, GL_RGBA, GL_UNSIGNED_BYTE);
-		Button1.texUnit(shaderProgram, "tex4", 4);
+		Texture PlayButton("PlayButton.png", GL_TEXTURE_2D, GL_TEXTURE4, GL_RGBA, GL_UNSIGNED_BYTE);
+		PlayButton.texUnit(shaderProgram, "tex4", 4);
+		Texture ExitButton("ExitButton.png", GL_TEXTURE_2D, GL_TEXTURE5, GL_RGBA, GL_UNSIGNED_BYTE);
+		ExitButton.texUnit(shaderProgram, "tex5", 5);
 
 		glEnable(GL_DEPTH_TEST);
 
@@ -181,7 +196,7 @@ while (!glfwWindowShouldClose(window))
 
 	double currentTime = glfwGetTime();
 
-	if (MenuCamera.ButtonClick(window)) // Если флаг установлен в true, отображаем меню
+	if (MenuCamera.PlayButtonClick(window)) // Если флаг установлен в true, отображаем меню
 	{
 		shaderProgram.Activate();
 		MenuCamera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
@@ -190,10 +205,18 @@ while (!glfwWindowShouldClose(window))
 		MenuVAO.Bind();
 		glDrawElements(GL_TRIANGLES, SizeMenuIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 
-		Button1.Bind();
-		ButtonVAO.Bind();
-		glDrawElements(GL_TRIANGLES, SizeButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
+		PlayButton.Bind();
+		PlayButtonVAO.Bind();
+		glDrawElements(GL_TRIANGLES, SizePlayButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 
+		ExitButton.Bind();
+		ExitButtonVAO.Bind();
+		glDrawElements(GL_TRIANGLES, SizeExitButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
+		
+		if (MenuCamera.ExitButtonClick(window))
+		{
+			glfwSetWindowShouldClose(window, GL_TRUE);
+		}
 	}
 	
 	else // Если флаг установлен в false, отображаем игровой мир
@@ -224,7 +247,7 @@ while (!glfwWindowShouldClose(window))
 
 			Finish.Bind();
 			VAO1.Bind();
-			glDrawElements(GL_TRIANGLES, SizeCubeIndices / sizeof(int), GL_UNSIGNED_INT, 0);
+			glDrawElements(GL_TRIANGLES, SizeMapFinishIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 
 			Floor.Bind();
 			VAO2.Bind();
@@ -257,9 +280,12 @@ while (!glfwWindowShouldClose(window))
 	FinishVAO.Delete();
 	FinishVBO.Delete();
 	FinishEBO.Delete();
-	ButtonVAO.Delete();
-	ButtonVBO.Delete();
-	ButtonEBO.Delete();
+	PlayButtonVAO.Delete();
+	PlayButtonVBO.Delete();
+	PlayButtonEBO.Delete();
+	ExitButtonVAO.Delete();
+	ExitButtonVBO.Delete();
+	ExitButtonEBO.Delete();
 	VAO1.Delete();
 	VBO1.Delete();
 	EBO1.Delete();
@@ -274,7 +300,8 @@ while (!glfwWindowShouldClose(window))
 	Floor.Delete();
 	Wall.Delete();
 	Preview.Delete();
-	Button1.Delete();
+	PlayButton.Delete();
+	ExitButton.Delete();
 
 	glfwDestroyWindow(window);
 	glfwTerminate();

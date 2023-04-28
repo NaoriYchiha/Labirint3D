@@ -102,7 +102,10 @@
     <Image Include="finish.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
-    <Image Include="button1.png">
+    <Image Include="PlayButton.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="ExitButton.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
   </ItemGroup>

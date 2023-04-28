@@ -3,8 +3,8 @@
 
 #include <glad/glad.h>
 
-extern  GLfloat CubeVertices[];
-extern  GLuint CubeIndices[];
+extern  GLfloat MapFinishVertices[];
+extern  GLuint MapFinishIndices[];
 
 extern  GLfloat FloorVertices[];
 extern  GLuint FloorIndices[];
@@ -18,11 +18,14 @@ extern  GLuint MenuIndices[];
 extern  GLfloat FinishVertices[];
 extern  GLuint FinishIndices[];
 
-extern  GLfloat ButtonVertices[];
-extern  GLuint ButtonIndices[];
+extern  GLfloat PlayButtonVertices[];
+extern  GLuint PlayButtonIndices[];
 
-extern const GLfloat SizeCubeVertices;
-extern const GLuint SizeCubeIndices;
+extern  GLfloat ExitButtonVertices[];
+extern  GLuint ExitButtonIndices[];
+
+extern const GLfloat SizeMapFinishVertices;
+extern const GLuint SizeMapFinishIndices;
 
 extern const GLfloat SizeFloorVertices;
 extern const GLuint SizeFloorIndices;
@@ -36,8 +39,11 @@ extern const GLuint SizeMenuIndices;
 extern const GLfloat SizeFinishVertices;
 extern const GLuint SizeFinishIndices;
 
-extern const GLfloat SizeButtonVertices;
-extern const GLuint SizeButtonIndices;
+extern const GLfloat SizePlayButtonVertices;
+extern const GLuint SizePlayButtonIndices;
+
+extern const GLfloat SizeExitButtonVertices;
+extern const GLuint SizeExitButtonIndices;
 
 
 

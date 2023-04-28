@@ -33,7 +33,8 @@ public:
 	void Matrix(float FOVdeg, float nearPlane, float farPlane, Shader& shader, const char* uniform);
 	void Inputs(GLFWwindow* window);
 	bool player_reached_finish();
-	bool ButtonClick(GLFWwindow* window);
+	bool PlayButtonClick(GLFWwindow* window);
+	bool ExitButtonClick(GLFWwindow* window);
 };
 
 #endif

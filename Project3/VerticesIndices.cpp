@@ -1,7 +1,7 @@
 #include "VerticesIndices.h"
 
 // Vertices coordinates
-GLfloat CubeVertices[] =
+GLfloat MapFinishVertices[] =
 {    // COORDINATES	//				// COLORS //		// iMAGE COORDINATES//
 	24.9f, 1.2f, 7.8f,			1.0f, 0.0f, 0.0f,		0.0f, 0.0f,//0
 	24.9f, 2.2f, 7.8f,			0.0f, 1.0f, 0.0f,		0.0f, 1.0f,//1
@@ -9,7 +9,7 @@ GLfloat CubeVertices[] =
 	23.6f, 1.2f, 7.8f,			1.0f, 1.0f, 1.0f,		1.0f, 0.0f,//3
 };
 
-GLuint CubeIndices[] =
+GLuint MapFinishIndices[] =
 {
 	 0, 2, 1,
 	 0, 3, 2
@@ -1102,7 +1102,7 @@ GLuint MenuIndices[] =
 	 0, 3, 2
 };
 
-GLfloat ButtonVertices[] =
+GLfloat PlayButtonVertices[] =
 {
 	-0.15f, -0.05f, 0.01f,			0.0f, 1.0f, 0.0f,		0.0f, 0.0f,//0
 	-0.15f, 0.08f, 0.01f,			0.0f, 1.0f, 0.0f,		0.0f, 1.0f,//1
@@ -1110,7 +1110,21 @@ GLfloat ButtonVertices[] =
 	0.1f, -0.05f, 0.01f,			0.0f, 1.0f, 0.0f,		1.0f, 0.0f//3
 };
 
-GLuint ButtonIndices[] =
+GLuint PlayButtonIndices[] =
+{
+	 0, 2, 1,
+	 0, 3, 2
+};
+
+GLfloat ExitButtonVertices[] =
+{
+	-0.15f, -0.31f, 0.01f,			0.0f, 1.0f, 0.0f,		0.0f, 0.0f,//0
+	-0.15f, -0.18f, 0.01f,			0.0f, 1.0f, 0.0f,		0.0f, 1.0f,//1
+	0.1f, -0.18f, 0.01f,			0.0f, 1.0f, 0.0f,		1.0f, 1.0f,//2
+	0.1f, -0.31f, 0.01f,			0.0f, 1.0f, 0.0f,		1.0f, 0.0f//3
+};
+
+GLuint ExitButtonIndices[] =
 {
 	 0, 2, 1,
 	 0, 3, 2
@@ -1132,8 +1146,8 @@ GLuint FinishIndices[] =
 
 
 
-const GLfloat SizeCubeVertices = sizeof(CubeVertices);
-const GLuint SizeCubeIndices = sizeof(CubeIndices);
+const GLfloat SizeMapFinishVertices = sizeof(MapFinishVertices);
+const GLuint SizeMapFinishIndices = sizeof(MapFinishIndices);
 
 const GLfloat SizeFloorVertices = sizeof(FloorVertices);
 const GLuint SizeFloorIndices = sizeof(FloorIndices);
@@ -1147,5 +1161,9 @@ const GLuint SizeMenuIndices = sizeof(MenuIndices);
 const GLfloat SizeFinishVertices = sizeof(FinishVertices);
 const GLuint SizeFinishIndices = sizeof(FinishIndices);
 
-const GLfloat SizeButtonVertices = sizeof(ButtonVertices);
-const GLuint SizeButtonIndices = sizeof(ButtonIndices);
+const GLfloat SizePlayButtonVertices = sizeof(PlayButtonVertices);
+const GLuint SizePlayButtonIndices = sizeof(PlayButtonIndices);
+
+const GLfloat SizeExitButtonVertices = sizeof(ExitButtonVertices);
+const GLuint SizeExitButtonIndices = sizeof(ExitButtonIndices);
+
