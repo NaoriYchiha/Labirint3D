@@ -308,3 +308,23 @@ bool Camera::player_reached_finish() {
 	else
 		return false;
 }
+
+
+
+bool Camera::ButtonClick(GLFWwindow* window) {
+	double xPos, yPos;
+	glfwGetCursorPos(window, &xPos, &yPos);
+
+	bool isMouseButtonPressed = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
+	if (player_reached_finish())
+	{
+		return m_isMenuVisible;
+	}
+	if (isMouseButtonPressed && !m_wasMouseButtonPressed && m_isMenuVisible && xPos >= 785 && xPos <= 1075 && yPos >= 470 && yPos <= 555)
+	{
+		 m_isMenuVisible = !m_isMenuVisible;
+	}
+	m_wasMouseButtonPressed = isMouseButtonPressed;
+
+	return m_isMenuVisible;
+}

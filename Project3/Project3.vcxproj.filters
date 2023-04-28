@@ -90,9 +90,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="C:\Users\lolol\Downloads\qwerty.png">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
     <Image Include="floor.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
@@ -103,6 +100,9 @@
       <Filter>Resource Files\Textures</Filter>
     </Image>
     <Image Include="finish.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="button1.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
   </ItemGroup>

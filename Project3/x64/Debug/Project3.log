@@ -1,7 +1,8 @@
 ﻿  main.cpp
-H:\программирование\c++\Labirint3D\Project3\main.cpp(67,26): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
-H:\программирование\c++\Labirint3D\Project3\main.cpp(79,27): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
-H:\программирование\c++\Labirint3D\Project3\main.cpp(93,26): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
-H:\программирование\c++\Labirint3D\Project3\main.cpp(107,29): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
-H:\программирование\c++\Labirint3D\Project3\main.cpp(120,33): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
+H:\программирование\c++\Labirint3D\Project3\main.cpp(70,26): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
+H:\программирование\c++\Labirint3D\Project3\main.cpp(82,27): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
+H:\программирование\c++\Labirint3D\Project3\main.cpp(96,26): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
+H:\программирование\c++\Labirint3D\Project3\main.cpp(110,29): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
+H:\программирование\c++\Labirint3D\Project3\main.cpp(123,33): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
+H:\программирование\c++\Labirint3D\Project3\main.cpp(136,33): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
   Project3.vcxproj -> H:\программирование\c++\Labirint3D\Project3\x64\Debug\Project3.exe

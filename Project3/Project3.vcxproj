@@ -164,7 +164,7 @@
     <ClInclude Include="VBO.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="C:\Users\lolol\Downloads\qwerty.png" />
+    <Image Include="button1.png" />
     <Image Include="floor.png" />
     <Image Include="preview.png" />
     <Image Include="wall.png" />

@@ -13,6 +13,9 @@
 
 class Camera
 {
+private:
+	bool m_wasMouseButtonPressed = false;
+	bool m_isMenuVisible = true;
 public:
 	glm::vec3 Position;
 	glm::vec3 Orientation = glm::vec3(0.0f, 0.0f, -0.1f);
@@ -23,13 +26,14 @@ public:
 	int width;
 	int height;
 
-	float speed = 0.02f;
+	float speed = 0.03f;
 	float sensivity = 100.0f;
 
 	Camera(int width, int height, glm::vec3 position);
 	void Matrix(float FOVdeg, float nearPlane, float farPlane, Shader& shader, const char* uniform);
 	void Inputs(GLFWwindow* window);
 	bool player_reached_finish();
+	bool ButtonClick(GLFWwindow* window);
 };
 
 #endif

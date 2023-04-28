@@ -21,6 +21,9 @@
 const unsigned int width = 1920;
 const unsigned int height = 1080; 
 
+int wins = 0;
+int loses = 0;
+
 GLFWimage load_icon(const char* filename)
 {
 	GLFWimage image;
@@ -54,8 +57,8 @@ int main() {
 		glViewport(0, 0, width, height);
 
 		GLFWimage images[2];
-		images[0] = load_icon("qwerty.png");
-		images[1] = load_icon("qwerty.png");
+		images[0] = load_icon("preview.png");
+		images[1] = load_icon("preview.png");
 
 		glfwSetWindowIcon(window, 2, images);
 
@@ -127,6 +130,19 @@ int main() {
 		FinishVBO.Unbind();
 		FinishEBO.Unbind();
 
+		VAO ButtonVAO;
+		ButtonVAO.Bind();
+
+		VBO ButtonVBO(ButtonVertices, SizeButtonVertices);
+		EBO ButtonEBO(ButtonIndices, SizeButtonIndices);
+
+		ButtonVAO.LinkAttrib(ButtonVBO, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
+		ButtonVAO.LinkAttrib(ButtonVBO, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+		ButtonVAO.LinkAttrib(ButtonVBO, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+		ButtonVAO.Unbind();
+		ButtonVBO.Unbind();
+		ButtonEBO.Unbind();
+
 		//Textures(image)
 		Texture Finish("finish.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
 		Finish.texUnit(shaderProgram, "tex0", 0);
@@ -136,7 +152,7 @@ int main() {
 		Wall.texUnit(shaderProgram, "tex2", 2);
 		Texture Preview("preview.png", GL_TEXTURE_2D, GL_TEXTURE3, GL_RGBA, GL_UNSIGNED_BYTE);
 		Preview.texUnit(shaderProgram, "tex3", 3);
-		Texture Button1("wall.png", GL_TEXTURE_2D, GL_TEXTURE4, GL_RGBA, GL_UNSIGNED_BYTE);
+		Texture Button1("button1.png", GL_TEXTURE_2D, GL_TEXTURE4, GL_RGBA, GL_UNSIGNED_BYTE);
 		Button1.texUnit(shaderProgram, "tex4", 4);
 
 		glEnable(GL_DEPTH_TEST);
@@ -145,7 +161,7 @@ int main() {
 		glm::vec3 startOrientation = glm::vec3(0.0f, 0.0f, -0.1f);
 
 		double lastTime = glfwGetTime();
-		bool isMenuDisplayed = true;
+		
 
 		Camera camera(width, height, startCamPos);
 		Camera MenuCamera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
@@ -164,9 +180,8 @@ while (!glfwWindowShouldClose(window))
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	double currentTime = glfwGetTime();
-	std::cout << "Time elapsed: " << currentTime - lastTime << " seconds." << std::endl;
 
-	if (isMenuDisplayed) // Если флаг установлен в true, отображаем меню
+	if (MenuCamera.ButtonClick(window)) // Если флаг установлен в true, отображаем меню
 	{
 		shaderProgram.Activate();
 		MenuCamera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
@@ -174,6 +189,10 @@ while (!glfwWindowShouldClose(window))
 		Preview.Bind();
 		MenuVAO.Bind();
 		glDrawElements(GL_TRIANGLES, SizeMenuIndices / sizeof(int), GL_UNSIGNED_INT, 0);
+
+		Button1.Bind();
+		ButtonVAO.Bind();
+		glDrawElements(GL_TRIANGLES, SizeButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 
 	}
 	
@@ -192,9 +211,9 @@ while (!glfwWindowShouldClose(window))
 			{
 				camera.Position = startCamPos;
 				camera.Orientation = startOrientation;
-				isMenuDisplayed = true;// Если пользователь нажал Enter, переключаем флаг в false
 				lastTime = currentTime;
-				file << "Finish time: " << lastTime << " seconds." << std::endl;
+				wins++;
+				file << "Finish time: " << lastTime << " seconds." << std::endl << "Wins: " << wins << std::endl;
 			};
 		}
 		else 
@@ -218,14 +237,15 @@ while (!glfwWindowShouldClose(window))
 		}
 	}
 
-
+	
 	glfwSwapBuffers(window);
 		//Take care of all GLFW events
 	glfwPollEvents();
 
-	if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS)
+	if (glfwWindowShouldClose(window) && !camera.player_reached_finish())
 	{
-		isMenuDisplayed = false;// Если пользователь нажал Enter, переключаем флаг в false
+		loses++;
+		file  << "Loses: " << loses << std::endl;
 	};
 }
 
@@ -237,6 +257,9 @@ while (!glfwWindowShouldClose(window))
 	FinishVAO.Delete();
 	FinishVBO.Delete();
 	FinishEBO.Delete();
+	ButtonVAO.Delete();
+	ButtonVBO.Delete();
+	ButtonEBO.Delete();
 	VAO1.Delete();
 	VBO1.Delete();
 	EBO1.Delete();
@@ -253,7 +276,6 @@ while (!glfwWindowShouldClose(window))
 	Preview.Delete();
 	Button1.Delete();
 
-	
 	glfwDestroyWindow(window);
 	glfwTerminate();
 	return 0;
