@@ -18,8 +18,8 @@
 
 
 
-const unsigned int width = 1920;
-const unsigned int height = 1080; 
+const unsigned int width = 1280;
+const unsigned int height = 960; 
 
 int wins = 0;
 int loses = 0;

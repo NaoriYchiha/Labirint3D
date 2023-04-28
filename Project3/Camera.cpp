@@ -317,7 +317,7 @@ bool Camera::PlayButtonClick(GLFWwindow* window) {
 
 	bool isMouseButtonPressed = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
 
-	if (isMouseButtonPressed && !m_wasMouseButtonPressed && m_isMenuVisible && xPos >= 785 && xPos <= 1075 && yPos >= 470 && yPos <= 555)
+	if (isMouseButtonPressed && !m_wasMouseButtonPressed && m_isMenuVisible && xPos >= width * 0.4088f && xPos <= width * 0.56f && yPos >= height * 0.435f && yPos <= height * 0.514f)
 	{
 		 m_isMenuVisible = !m_isMenuVisible;
 	}
@@ -336,7 +336,7 @@ bool Camera::ExitButtonClick(GLFWwindow* window) {
 	glfwGetCursorPos(window, &xPos, &yPos);
 	bool isMouseButtonPressed = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
 
-	if (isMouseButtonPressed && m_isMenuVisible && xPos >= 785 && xPos <= 1075 && yPos >= 640 && yPos <= 725)
+	if (isMouseButtonPressed && m_isMenuVisible && xPos >= width * 0.4088f && xPos <= width * 0.56f && yPos >= height * 0.593f && yPos <= height * 0.671f)
 	{
 		return true;
 	}
