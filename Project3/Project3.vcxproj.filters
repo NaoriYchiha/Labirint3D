@@ -62,12 +62,6 @@
     <None Include="default.frag">
       <Filter>Resource Files\Shaders</Filter>
     </None>
-    <None Include="menu.frag">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
-    <None Include="menu.vert">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ShaderClass.h">
