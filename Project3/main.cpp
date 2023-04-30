@@ -241,6 +241,18 @@ int main() {
 		Resolution1280x720Button.texUnit(shaderProgram, "tex8", 8);
 		Texture Resolution1920x1080Button("LabTextures/1920x1080Button.png", GL_TEXTURE_2D, GL_TEXTURE9, GL_RGBA, GL_UNSIGNED_BYTE);
 		Resolution1920x1080Button.texUnit(shaderProgram, "tex9", 9);
+		Texture PlayButton1("LabTextures/PlayButton1.png", GL_TEXTURE_2D, GL_TEXTURE10, GL_RGBA, GL_UNSIGNED_BYTE);
+		PlayButton1.texUnit(shaderProgram, "tex10", 10);
+		Texture ExitButton1("LabTextures/ExitButton2.png", GL_TEXTURE_2D, GL_TEXTURE11, GL_RGBA, GL_UNSIGNED_BYTE);
+		ExitButton.texUnit(shaderProgram, "tex11", 11);
+		Texture SettingsButton1("LabTextures/SettingsButton2.png", GL_TEXTURE_2D, GL_TEXTURE12, GL_RGBA, GL_UNSIGNED_BYTE);
+		SettingsButton.texUnit(shaderProgram, "tex12", 12);
+		Texture Resolution800x600ButtonWhite("LabTextures/800x600Button1.png", GL_TEXTURE_2D, GL_TEXTURE13, GL_RGBA, GL_UNSIGNED_BYTE);
+		Resolution800x600ButtonWhite.texUnit(shaderProgram, "tex13", 13);
+		Texture Resolution1280x720ButtonWhite("LabTextures/1280x720Button1.png", GL_TEXTURE_2D, GL_TEXTURE14, GL_RGBA, GL_UNSIGNED_BYTE);
+		Resolution1280x720ButtonWhite.texUnit(shaderProgram, "tex14", 14);
+		Texture Resolution1920x1080ButtonWhite("LabTextures/1920x1080Button1.png", GL_TEXTURE_2D, GL_TEXTURE15, GL_RGBA, GL_UNSIGNED_BYTE);
+		Resolution1920x1080ButtonWhite.texUnit(shaderProgram, "tex15", 15);
 
 		glEnable(GL_DEPTH_TEST);
 
@@ -279,15 +291,32 @@ while (!glfwWindowShouldClose(window))
 		MenuVAO.Bind();
 		glDrawElements(GL_TRIANGLES, SizeMenuIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 
-		PlayButton.Bind();
+		if (MenuCamera.PlayButtonMouse(window))
+		{
+			PlayButton1.Bind();
+		}
+		else {
+			PlayButton.Bind();
+		}
 		PlayButtonVAO.Bind();
 		glDrawElements(GL_TRIANGLES, SizePlayButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 
-		SettingsButton.Bind();
+		if (MenuCamera.SettingsButtonMouse(window)) {
+			SettingsButton1.Bind();
+		}
+		else {
+			SettingsButton.Bind();
+		}
 		SettingsButtonVAO.Bind();
 		glDrawElements(GL_TRIANGLES, SizeSettingsButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 
-		ExitButton.Bind();
+		if (MenuCamera.ExitButtonMouse(window)) {
+			ExitButton1.Bind();
+		}
+		else {
+			ExitButton.Bind();
+		}
+		
 		ExitButtonVAO.Bind();
 		glDrawElements(GL_TRIANGLES, SizeExitButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 		
@@ -304,15 +333,30 @@ while (!glfwWindowShouldClose(window))
 				SettingsMenuVAO.Bind();
 				glDrawElements(GL_TRIANGLES, SizeSettingsMenuIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 
-				Resolution800x600Button.Bind();
+				if (SettingsCamera.Resolution800x600ButtonMouse(window)) {
+					Resolution800x600ButtonWhite.Bind();
+				}
+				else {
+					Resolution800x600Button.Bind();
+				}
 				Resolution800x600ButtonVAO.Bind();
 				glDrawElements(GL_TRIANGLES, SizeResolution800x600ButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
-
-				Resolution1280x720Button.Bind();
+				if (SettingsCamera.Resolution1280x720ButtonMouse(window)) {
+					Resolution1280x720ButtonWhite.Bind();
+				}
+				else {
+					Resolution1280x720Button.Bind();
+				}
+				
 				Resolution1280x720ButtonVAO.Bind();
 				glDrawElements(GL_TRIANGLES, SizeResolution1280x720ButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 
-				Resolution1920x1080Button.Bind();
+				if (SettingsCamera.Resolution1920x1080ButtonMouse(window)) {
+					Resolution1920x1080ButtonWhite.Bind();
+				}
+				else {
+					Resolution1920x1080Button.Bind();
+				}
 				Resolution1920x1080ButtonVAO.Bind();
 				glDrawElements(GL_TRIANGLES, SizeResolution1920x1080ButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 
@@ -465,9 +509,15 @@ while (!glfwWindowShouldClose(window))
 	PlayButton.Delete();
 	ExitButton.Delete();
 	SettingsButton.Delete();
+	PlayButton1.Delete();
+	ExitButton1.Delete();
+	SettingsButton1.Delete();
 	Resolution800x600Button.Delete();
 	Resolution1280x720Button.Delete();
-	Resolution1920x1080Button.Delete();
+	Resolution1920x1080Button.Delete();	
+	Resolution800x600ButtonWhite.Delete();
+	Resolution1280x720ButtonWhite.Delete();
+	Resolution1920x1080ButtonWhite.Delete();
 
 
 	glfwDestroyWindow(window);

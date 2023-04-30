@@ -40,13 +40,25 @@ public:
 	Camera(int width, int height, glm::vec3 position);
 	void Matrix(float FOVdeg, float nearPlane, float farPlane, Shader& shader, const char* uniform);
 	void Inputs(GLFWwindow* window);
+
 	bool player_reached_finish();
+
+	bool PlayButtonMouse(GLFWwindow* window);
 	bool PlayButtonClick(GLFWwindow* window);
+
 	bool SettingsButtonClick(GLFWwindow* window);
+	bool SettingsButtonMouse(GLFWwindow* window);
+
 	bool ExitButtonClick(GLFWwindow* window);
+	bool ExitButtonMouse(GLFWwindow* window);
+
 	bool Resolution800x600ButtonClick(GLFWwindow* window);
 	bool Resolution1280x720ButtonClick(GLFWwindow* window);
 	bool Resolution1920x1080ButtonClick(GLFWwindow* window);
+	
+	bool Resolution800x600ButtonMouse(GLFWwindow* window);
+	bool Resolution1280x720ButtonMouse(GLFWwindow* window);
+	bool Resolution1920x1080ButtonMouse(GLFWwindow* window);
 };
 
 #endif
