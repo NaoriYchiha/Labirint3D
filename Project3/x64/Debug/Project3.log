@@ -12,4 +12,5 @@ H:\программирование\c++\Labirint3D\Project3\main.cpp(187,67): wa
 H:\программирование\c++\Labirint3D\Project3\main.cpp(200,69): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
 H:\программирование\c++\Labirint3D\Project3\main.cpp(213,71): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
 H:\программирование\c++\Labirint3D\Project3\main.cpp(270,9): warning C4101: 'currentTime': unreferenced local variable
+x64\Debug\VerticesIndices.obj : warning LNK4042: object specified more than once; extras ignored
   Project3.vcxproj -> H:\программирование\c++\Labirint3D\Project3\x64\Debug\Project3.exe

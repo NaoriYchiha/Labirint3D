@@ -56,8 +56,8 @@ int main() {
 		glViewport(0, 0, width, height);
 
 		GLFWimage images[2];
-		images[0] = load_icon("preview.png");
-		images[1] = load_icon("preview.png");
+		images[0] = load_icon("LabTextures/preview.png");
+		images[1] = load_icon("LabTextures/preview.png");
 
 		glfwSetWindowIcon(window, 2, images);
 
@@ -221,25 +221,25 @@ int main() {
 		Resolution1920x1080ButtonEBO.Unbind();
 
 		//Textures(image)
-		Texture Finish("finish.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+		Texture Finish("LabTextures/finish.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
 		Finish.texUnit(shaderProgram, "tex0", 0);
-		Texture Floor("floor.png", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGBA, GL_UNSIGNED_BYTE);
+		Texture Floor("LabTextures/floor.png", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGBA, GL_UNSIGNED_BYTE);
 		Floor.texUnit(shaderProgram, "tex1", 1);
-		Texture Wall("wall.png", GL_TEXTURE_2D, GL_TEXTURE2, GL_RGBA, GL_UNSIGNED_BYTE);
+		Texture Wall("LabTextures/wall.png", GL_TEXTURE_2D, GL_TEXTURE2, GL_RGBA, GL_UNSIGNED_BYTE);
 		Wall.texUnit(shaderProgram, "tex2", 2);
-		Texture Preview("preview.png", GL_TEXTURE_2D, GL_TEXTURE3, GL_RGBA, GL_UNSIGNED_BYTE);
+		Texture Preview("LabTextures/preview.png", GL_TEXTURE_2D, GL_TEXTURE3, GL_RGBA, GL_UNSIGNED_BYTE);
 		Preview.texUnit(shaderProgram, "tex3", 3);
-		Texture PlayButton("PlayButton.png", GL_TEXTURE_2D, GL_TEXTURE4, GL_RGBA, GL_UNSIGNED_BYTE);
+		Texture PlayButton("LabTextures/PlayButton.png", GL_TEXTURE_2D, GL_TEXTURE4, GL_RGBA, GL_UNSIGNED_BYTE);
 		PlayButton.texUnit(shaderProgram, "tex4", 4);
-		Texture ExitButton("ExitButton.png", GL_TEXTURE_2D, GL_TEXTURE5, GL_RGBA, GL_UNSIGNED_BYTE);
+		Texture ExitButton("LabTextures/ExitButton.png", GL_TEXTURE_2D, GL_TEXTURE5, GL_RGBA, GL_UNSIGNED_BYTE);
 		ExitButton.texUnit(shaderProgram, "tex5", 5);
-		Texture SettingsButton("SettingsButton.png", GL_TEXTURE_2D, GL_TEXTURE6, GL_RGBA, GL_UNSIGNED_BYTE);
+		Texture SettingsButton("LabTextures/SettingsButton.png", GL_TEXTURE_2D, GL_TEXTURE6, GL_RGBA, GL_UNSIGNED_BYTE);
 		SettingsButton.texUnit(shaderProgram, "tex6", 6);
-		Texture Resolution800x600Button("800x600Button.png", GL_TEXTURE_2D, GL_TEXTURE7, GL_RGBA, GL_UNSIGNED_BYTE);
+		Texture Resolution800x600Button("LabTextures/800x600Button.png", GL_TEXTURE_2D, GL_TEXTURE7, GL_RGBA, GL_UNSIGNED_BYTE);
 		Resolution800x600Button.texUnit(shaderProgram, "tex7", 7);
-		Texture Resolution1280x720Button("1280x720Button.png", GL_TEXTURE_2D, GL_TEXTURE8, GL_RGBA, GL_UNSIGNED_BYTE);
+		Texture Resolution1280x720Button("LabTextures/1280x720Button.png", GL_TEXTURE_2D, GL_TEXTURE8, GL_RGBA, GL_UNSIGNED_BYTE);
 		Resolution1280x720Button.texUnit(shaderProgram, "tex8", 8);
-		Texture Resolution1920x1080Button("1920x1080Button.png", GL_TEXTURE_2D, GL_TEXTURE9, GL_RGBA, GL_UNSIGNED_BYTE);
+		Texture Resolution1920x1080Button("LabTextures/1920x1080Button.png", GL_TEXTURE_2D, GL_TEXTURE9, GL_RGBA, GL_UNSIGNED_BYTE);
 		Resolution1920x1080Button.texUnit(shaderProgram, "tex9", 9);
 
 		glEnable(GL_DEPTH_TEST);

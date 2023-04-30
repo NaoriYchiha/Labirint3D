@@ -120,5 +120,35 @@
     <Image Include="1920x1080Button.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
+    <Image Include="LabTextures\floor.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="LabTextures\PlayButton.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="LabTextures\preview.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="LabTextures\SettingsButton.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="LabTextures\wall.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="LabTextures\800x600Button.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="LabTextures\1280x720Button.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="LabTextures\1920x1080Button.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="LabTextures\ExitButton.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="LabTextures\finish.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>
