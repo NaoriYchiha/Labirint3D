@@ -18,8 +18,8 @@
 
 
 
-const unsigned int width = 1280;
-const unsigned int height = 960; 
+unsigned int width = 1920;
+unsigned int height = 1080; 
 
 int wins = 0;
 int loses = 0;
@@ -65,44 +65,44 @@ int main() {
 		std::ofstream file("time.txt");
 
 		Shader shaderProgram("default.vert", "default.frag");
-		VAO VAO1;
-		VAO1.Bind();
-		VBO VBO1(MapFinishVertices, SizeMapFinishVertices);
-		EBO EBO1(MapFinishIndices, SizeMapFinishIndices);
+		VAO MapFinishVAO;
+		MapFinishVAO.Bind();
+		VBO MapFinishVBO(MapFinishVertices, SizeMapFinishVertices);
+		EBO MapFinishEBO(MapFinishIndices, SizeMapFinishIndices);
 
-		VAO1.LinkAttrib(VBO1, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
-		VAO1.LinkAttrib(VBO1, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-		VAO1.LinkAttrib(VBO1, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-		VAO1.Unbind();
-		VBO1.Unbind();
-		EBO1.Unbind();
+		MapFinishVAO.LinkAttrib(MapFinishVBO, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
+		MapFinishVAO.LinkAttrib(MapFinishVBO, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+		MapFinishVAO.LinkAttrib(MapFinishVBO, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+		MapFinishVAO.Unbind();
+		MapFinishVBO.Unbind();
+		MapFinishEBO.Unbind();
 
-		VAO VAO2;
-		VAO2.Bind();
-		VBO VBO2(FloorVertices, SizeFloorVertices);
-		EBO EBO2(FloorIndices, SizeFloorIndices);
-
-
-		VAO2.LinkAttrib(VBO2, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
-		VAO2.LinkAttrib(VBO2, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-		VAO2.LinkAttrib(VBO2, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-		VAO2.Unbind();
-		VBO2.Unbind();
-		EBO2.Unbind();
+		VAO FloorVAO;
+		FloorVAO.Bind();
+		VBO FloorVBO(FloorVertices, SizeFloorVertices);
+		EBO FloorEBO(FloorIndices, SizeFloorIndices);
 
 
-		VAO VAO3;
-		VAO3.Bind();
-		VBO VBO3(WallVertices, SizeWallVertices);
-		EBO EBO3(WallIndices, SizeWallIndices);
+		FloorVAO.LinkAttrib(FloorVBO, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
+		FloorVAO.LinkAttrib(FloorVBO, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+		FloorVAO.LinkAttrib(FloorVBO, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+		FloorVAO.Unbind();
+		FloorVBO.Unbind();
+		FloorEBO.Unbind();
 
 
-		VAO3.LinkAttrib(VBO3, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
-		VAO3.LinkAttrib(VBO3, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-		VAO3.LinkAttrib(VBO3, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-		VAO3.Unbind();
-		VBO3.Unbind();
-		EBO3.Unbind();
+		VAO WallVAO;
+		WallVAO.Bind();
+		VBO WallVBO(WallVertices, SizeWallVertices);
+		EBO WallEBO(WallIndices, SizeWallIndices);
+
+
+		WallVAO.LinkAttrib(WallVBO, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
+		WallVAO.LinkAttrib(WallVBO, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+		WallVAO.LinkAttrib(WallVBO, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+		WallVAO.Unbind();
+		WallVBO.Unbind();
+		WallEBO.Unbind();
 
 		VAO MenuVAO;
 		MenuVAO.Bind();
@@ -182,6 +182,33 @@ int main() {
 		SettingsButtonVBO.Unbind();
 		SettingsButtonEBO.Unbind();
 
+		VAO ResolutionButtonVAO;
+		ResolutionButtonVAO.Bind();
+
+		VBO ResolutionButtonVBO(ResolutionButtonVertices, SizeResolutionButtonVertices);
+		EBO ResolutionButtonEBO(ResolutionButtonIndices, SizeResolutionButtonIndices);
+
+		ResolutionButtonVAO.LinkAttrib(ResolutionButtonVBO, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
+		ResolutionButtonVAO.LinkAttrib(ResolutionButtonVBO, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+		ResolutionButtonVAO.LinkAttrib(ResolutionButtonVBO, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+		ResolutionButtonVAO.Unbind();
+		ResolutionButtonVBO.Unbind();
+		ResolutionButtonEBO.Unbind();
+
+		VAO Resolution2ButtonVAO;
+		Resolution2ButtonVAO.Bind();
+
+		VBO Resolution2ButtonVBO(Resolution2ButtonVertices, SizeResolution2ButtonVertices);
+		EBO Resolution2ButtonEBO(Resolution2ButtonIndices, SizeResolution2ButtonIndices);
+
+		Resolution2ButtonVAO.LinkAttrib(Resolution2ButtonVBO, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
+		Resolution2ButtonVAO.LinkAttrib(Resolution2ButtonVBO, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+		Resolution2ButtonVAO.LinkAttrib(Resolution2ButtonVBO, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+		Resolution2ButtonVAO.Unbind();
+		Resolution2ButtonVBO.Unbind();
+		Resolution2ButtonEBO.Unbind();
+
+
 		//Textures(image)
 		Texture Finish("finish.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
 		Finish.texUnit(shaderProgram, "tex0", 0);
@@ -208,7 +235,7 @@ int main() {
 
 		Camera camera(width, height, startCamPos);
 		Camera MenuCamera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
-		Camera SettingsCamera(width, height, glm::vec3(0.0f, 0.0f, 3.0f));
+		Camera SettingsCamera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
 		Camera FinishCamera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
 
 		GLenum error = glGetError();
@@ -258,6 +285,21 @@ while (!glfwWindowShouldClose(window))
 				Preview.Bind();
 				SettingsMenuVAO.Bind();
 				glDrawElements(GL_TRIANGLES, SizeSettingsMenuIndices / sizeof(int), GL_UNSIGNED_INT, 0);
+
+				ExitButton.Bind();
+				ResolutionButtonVAO.Bind();
+				glDrawElements(GL_TRIANGLES, SizeResolutionButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
+
+
+				ExitButton.Bind();
+				Resolution2ButtonVAO.Bind();
+				glDrawElements(GL_TRIANGLES, SizeResolution2ButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
+				if (SettingsCamera.ResolutionButtonClick(window))
+				{
+					unsigned int width = 800, height = 600;
+					glfwSetWindowSize(window, width, height);	
+					glViewport(0, 0, width, height);
+				}
 		}
 	}
 	
@@ -289,15 +331,15 @@ while (!glfwWindowShouldClose(window))
 			camera.Matrix(45.0f, 0.01f, 100.0f, shaderProgram, "camMatrix");
 
 			Finish.Bind();
-			VAO1.Bind();
+			MapFinishVAO.Bind();
 			glDrawElements(GL_TRIANGLES, SizeMapFinishIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 
 			Floor.Bind();
-			VAO2.Bind();
+			FloorVAO.Bind();
 			glDrawElements(GL_TRIANGLES, SizeFloorIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 
 			Wall.Bind();
-			VAO3.Bind();
+			WallVAO.Bind();
 			glDrawElements(GL_TRIANGLES, SizeWallIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 			
 		}
@@ -335,15 +377,21 @@ while (!glfwWindowShouldClose(window))
 	SettingsMenuVAO.Delete();
 	SettingsMenuVBO.Delete();
 	SettingsMenuEBO.Delete();
-	VAO1.Delete();
-	VBO1.Delete();
-	EBO1.Delete();
-	VAO2.Delete();
-	VBO2.Delete();
-	EBO2.Delete();
-	VAO3.Delete();
-	VBO3.Delete();
-	EBO3.Delete();
+	MapFinishVAO.Delete();
+	MapFinishVBO.Delete();
+	MapFinishEBO.Delete();
+	FloorVAO.Delete();
+	FloorVBO.Delete();
+	FloorEBO.Delete();
+	WallVAO.Delete();
+	WallVBO.Delete();
+	WallEBO.Delete();
+	ResolutionButtonVAO.Delete();
+	ResolutionButtonVBO.Delete();
+	ResolutionButtonEBO.Delete();
+	Resolution2ButtonVAO.Delete();
+	Resolution2ButtonVBO.Delete();
+	Resolution2ButtonEBO.Delete();
 	shaderProgram.Delete();
 	Finish.Delete();
 	Floor.Delete();

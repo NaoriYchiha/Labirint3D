@@ -1104,10 +1104,10 @@ GLuint MenuIndices[] =
 
 GLfloat SettingsMenuVertices[] =
 {
-	-1.0f, -1.0f, 2.0f,			0.0f, 1.0f, 0.0f,		0.0f, 0.0f,//0
-	-1.0f, 1.0f, 2.0f,			0.0f, 1.0f, 0.0f,		0.0f, 1.0f,//1
-	1.0f, 1.0f, 2.0f,			0.0f, 1.0f, 0.0f,		1.0f, 1.0f,//2
-	1.0f, -1.0f, 2.0f,			0.0f, 1.0f, 0.0f,		1.0f, 0.0f//3
+	-1.0f, -1.0f, 0.02f,			0.0f, 1.0f, 0.0f,		0.0f, 0.0f,//0
+	-1.0f, 1.0f, 0.02f,			0.0f, 1.0f, 0.0f,		0.0f, 1.0f,//1
+	1.0f, 1.0f, 0.02f,			0.0f, 1.0f, 0.0f,		1.0f, 1.0f,//2
+	1.0f, -1.0f, 0.02f,			0.0f, 1.0f, 0.0f,		1.0f, 0.0f//3
 };
 
 GLuint SettingsMenuIndices[] =
@@ -1172,6 +1172,33 @@ GLuint FinishIndices[] =
 	 0, 3, 2
 };
 
+GLfloat ResolutionButtonVertices[] =
+{
+	-0.8f, 0.55f, 0.03f,			0.0f, 1.0f, 0.0f,		0.0f, 0.0f,//0
+	-0.8f, 0.7f, 0.03f,				0.0f, 1.0f, 0.0f,		0.0f, 1.0f,//1
+	-0.55f, 0.7f, 0.03f,			0.0f, 1.0f, 0.0f,		1.0f, 1.0f,//2
+	-0.55f, 0.55f, 0.03f,			0.0f, 1.0f, 0.0f,		1.0f, 0.0f//3
+};
+
+GLuint ResolutionButtonIndices[] =
+{
+	 0, 2, 1,
+	 0, 3, 2
+};
+
+GLfloat Resolution2ButtonVertices[] =
+{
+	-0.5f, 0.55f, 0.03f,			0.0f, 1.0f, 0.0f,		0.0f, 0.0f,//0
+	-0.5f, 0.7f, 0.03f,				0.0f, 1.0f, 0.0f,		0.0f, 1.0f,//1
+	-0.25f, 0.7f, 0.03f,			0.0f, 1.0f, 0.0f,		1.0f, 1.0f,//2
+	-0.25f, 0.55f, 0.03f,			0.0f, 1.0f, 0.0f,		1.0f, 0.0f//3
+};
+
+GLuint Resolution2ButtonIndices[] =
+{
+	 0, 2, 1,
+	 0, 3, 2
+};
 
 
 const GLfloat SizeMapFinishVertices = sizeof(MapFinishVertices);
@@ -1194,6 +1221,12 @@ const GLuint SizePlayButtonIndices = sizeof(PlayButtonIndices);
 
 const GLfloat SizeExitButtonVertices = sizeof(ExitButtonVertices);
 const GLuint SizeExitButtonIndices = sizeof(ExitButtonIndices);
+
+const GLfloat SizeResolution2ButtonVertices = sizeof(Resolution2ButtonVertices);
+const GLuint SizeResolution2ButtonIndices = sizeof(Resolution2ButtonIndices);
+
+const GLfloat SizeResolutionButtonVertices = sizeof(ResolutionButtonVertices);
+const GLuint SizeResolutionButtonIndices = sizeof(ResolutionButtonIndices);
 
 const GLfloat SizeSettingsButtonVertices = sizeof(SettingsButtonVertices);
 const GLuint SizeSettingsButtonIndices = sizeof(SettingsButtonIndices);
