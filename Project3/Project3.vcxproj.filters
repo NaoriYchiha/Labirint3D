@@ -84,25 +84,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="floor.png">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
-    <Image Include="wall.png">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
-    <Image Include="preview.png">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
-    <Image Include="finish.png">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
-    <Image Include="PlayButton.png">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
     <Image Include="ExitButton.png">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
-    <Image Include="SettingsButton.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
     <Image Include="800x600Button.png">
@@ -129,19 +111,13 @@
     <Image Include="LabTextures\wall.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
-    <Image Include="LabTextures\800x600Button.png">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
-    <Image Include="LabTextures\1280x720Button.png">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
-    <Image Include="LabTextures\1920x1080Button.png">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
-    <Image Include="LabTextures\ExitButton.png">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
     <Image Include="LabTextures\finish.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="LabTextures\back.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="LabTextures\ICON.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
   </ItemGroup>

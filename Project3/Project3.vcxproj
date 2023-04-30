@@ -166,22 +166,14 @@
     <Image Include="1920x1080Button.png" />
     <Image Include="800x600Button.png" />
     <Image Include="ExitButton.png" />
-    <Image Include="LabTextures\1280x720Button.png" />
-    <Image Include="LabTextures\1920x1080Button.png" />
-    <Image Include="LabTextures\800x600Button.png" />
-    <Image Include="LabTextures\ExitButton.png" />
+    <Image Include="LabTextures\back.png" />
     <Image Include="LabTextures\finish.png" />
     <Image Include="LabTextures\floor.png" />
+    <Image Include="LabTextures\ICON.png" />
     <Image Include="LabTextures\PlayButton.png" />
     <Image Include="LabTextures\preview.png" />
     <Image Include="LabTextures\SettingsButton.png" />
     <Image Include="LabTextures\wall.png" />
-    <Image Include="PlayButton.png" />
-    <Image Include="floor.png" />
-    <Image Include="preview.png" />
-    <Image Include="SettingsButton.png" />
-    <Image Include="wall.png" />
-    <Image Include="finish.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

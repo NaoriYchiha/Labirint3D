@@ -56,8 +56,8 @@ int main() {
 		glViewport(0, 0, width, height);
 
 		GLFWimage images[2];
-		images[0] = load_icon("LabTextures/preview.png");
-		images[1] = load_icon("LabTextures/preview.png");
+		images[0] = load_icon("LabTextures/ICON.png");
+		images[1] = load_icon("LabTextures/ICON.png");
 
 		glfwSetWindowIcon(window, 2, images);
 
@@ -227,7 +227,7 @@ int main() {
 		Floor.texUnit(shaderProgram, "tex1", 1);
 		Texture Wall("LabTextures/wall.png", GL_TEXTURE_2D, GL_TEXTURE2, GL_RGBA, GL_UNSIGNED_BYTE);
 		Wall.texUnit(shaderProgram, "tex2", 2);
-		Texture Preview("LabTextures/preview.png", GL_TEXTURE_2D, GL_TEXTURE3, GL_RGBA, GL_UNSIGNED_BYTE);
+		Texture Preview("LabTextures/back.png", GL_TEXTURE_2D, GL_TEXTURE3, GL_RGBA, GL_UNSIGNED_BYTE);
 		Preview.texUnit(shaderProgram, "tex3", 3);
 		Texture PlayButton("LabTextures/PlayButton.png", GL_TEXTURE_2D, GL_TEXTURE4, GL_RGBA, GL_UNSIGNED_BYTE);
 		PlayButton.texUnit(shaderProgram, "tex4", 4);
