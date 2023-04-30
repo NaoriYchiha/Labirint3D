@@ -30,11 +30,14 @@ extern  GLuint ExitButtonIndices[];
 extern  GLfloat SettingsButtonVertices[];
 extern  GLuint SettingsButtonIndices[];
 
-extern  GLfloat ResolutionButtonVertices[];
-extern  GLuint ResolutionButtonIndices[];
+extern  GLfloat Resolution800x600ButtonVertices[];
+extern  GLuint Resolution800x600ButtonIndices[];
 
-extern  GLfloat Resolution2ButtonVertices[];
-extern  GLuint Resolution2ButtonIndices[];
+extern  GLfloat Resolution1280x720ButtonVertices[];
+extern  GLuint Resolution1280x720ButtonIndices[];
+
+extern  GLfloat Resolution1920x1080ButtonVertices[];
+extern  GLuint Resolution1920x1080ButtonIndices[];
 
 extern const GLfloat SizeMapFinishVertices;
 extern const GLuint SizeMapFinishIndices;
@@ -63,11 +66,14 @@ extern const GLuint SizeExitButtonIndices;
 extern const GLfloat SizeSettingsButtonVertices;
 extern const GLuint SizeSettingsButtonIndices;
 
-extern const GLfloat SizeResolutionButtonVertices;
-extern const GLuint SizeResolutionButtonIndices;
+extern const GLfloat SizeResolution800x600ButtonVertices;
+extern const GLuint SizeResolution800x600ButtonIndices;
 
-extern const GLfloat SizeResolution2ButtonVertices;
-extern const GLuint SizeResolution2ButtonIndices;
+extern const GLfloat SizeResolution1280x720ButtonVertices;
+extern const GLuint SizeResolution1280x720ButtonIndices;
+
+extern const GLfloat SizeResolution1920x1080ButtonVertices;
+extern const GLuint SizeResolution1920x1080ButtonIndices;
 
 
 

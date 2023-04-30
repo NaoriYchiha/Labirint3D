@@ -18,8 +18,7 @@
 
 
 
-unsigned int width = 1920;
-unsigned int height = 1080; 
+unsigned int width = 1920, height = 1080;
 
 int wins = 0;
 int loses = 0;
@@ -182,32 +181,44 @@ int main() {
 		SettingsButtonVBO.Unbind();
 		SettingsButtonEBO.Unbind();
 
-		VAO ResolutionButtonVAO;
-		ResolutionButtonVAO.Bind();
+		VAO Resolution800x600ButtonVAO;
+		Resolution800x600ButtonVAO.Bind();
 
-		VBO ResolutionButtonVBO(ResolutionButtonVertices, SizeResolutionButtonVertices);
-		EBO ResolutionButtonEBO(ResolutionButtonIndices, SizeResolutionButtonIndices);
+		VBO Resolution800x600ButtonVBO(Resolution800x600ButtonVertices, SizeResolution800x600ButtonVertices);
+		EBO Resolution800x600ButtonEBO(Resolution800x600ButtonIndices, SizeResolution800x600ButtonIndices);
 
-		ResolutionButtonVAO.LinkAttrib(ResolutionButtonVBO, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
-		ResolutionButtonVAO.LinkAttrib(ResolutionButtonVBO, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-		ResolutionButtonVAO.LinkAttrib(ResolutionButtonVBO, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-		ResolutionButtonVAO.Unbind();
-		ResolutionButtonVBO.Unbind();
-		ResolutionButtonEBO.Unbind();
+		Resolution800x600ButtonVAO.LinkAttrib(Resolution800x600ButtonVBO, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
+		Resolution800x600ButtonVAO.LinkAttrib(Resolution800x600ButtonVBO, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+		Resolution800x600ButtonVAO.LinkAttrib(Resolution800x600ButtonVBO, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+		Resolution800x600ButtonVAO.Unbind();
+		Resolution800x600ButtonVBO.Unbind();
+		Resolution800x600ButtonEBO.Unbind();
 
-		VAO Resolution2ButtonVAO;
-		Resolution2ButtonVAO.Bind();
+		VAO Resolution1280x720ButtonVAO;
+		Resolution1280x720ButtonVAO.Bind();
 
-		VBO Resolution2ButtonVBO(Resolution2ButtonVertices, SizeResolution2ButtonVertices);
-		EBO Resolution2ButtonEBO(Resolution2ButtonIndices, SizeResolution2ButtonIndices);
+		VBO Resolution1280x720ButtonVBO(Resolution1280x720ButtonVertices, SizeResolution1280x720ButtonVertices);
+		EBO Resolution1280x720ButtonEBO(Resolution1280x720ButtonIndices, SizeResolution1280x720ButtonIndices);
 
-		Resolution2ButtonVAO.LinkAttrib(Resolution2ButtonVBO, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
-		Resolution2ButtonVAO.LinkAttrib(Resolution2ButtonVBO, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-		Resolution2ButtonVAO.LinkAttrib(Resolution2ButtonVBO, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-		Resolution2ButtonVAO.Unbind();
-		Resolution2ButtonVBO.Unbind();
-		Resolution2ButtonEBO.Unbind();
+		Resolution1280x720ButtonVAO.LinkAttrib(Resolution1280x720ButtonVBO, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
+		Resolution1280x720ButtonVAO.LinkAttrib(Resolution1280x720ButtonVBO, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+		Resolution1280x720ButtonVAO.LinkAttrib(Resolution1280x720ButtonVBO, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+		Resolution1280x720ButtonVAO.Unbind();
+		Resolution1280x720ButtonVBO.Unbind();
+		Resolution1280x720ButtonEBO.Unbind();
 
+		VAO Resolution1920x1080ButtonVAO;
+		Resolution1920x1080ButtonVAO.Bind();
+
+		VBO Resolution1920x1080ButtonVBO(Resolution1920x1080ButtonVertices, SizeResolution1920x1080ButtonVertices);
+		EBO Resolution1920x1080ButtonEBO(Resolution1920x1080ButtonIndices, SizeResolution1920x1080ButtonIndices);
+
+		Resolution1920x1080ButtonVAO.LinkAttrib(Resolution1920x1080ButtonVBO, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
+		Resolution1920x1080ButtonVAO.LinkAttrib(Resolution1920x1080ButtonVBO, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+		Resolution1920x1080ButtonVAO.LinkAttrib(Resolution1920x1080ButtonVBO, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+		Resolution1920x1080ButtonVAO.Unbind();
+		Resolution1920x1080ButtonVBO.Unbind();
+		Resolution1920x1080ButtonEBO.Unbind();
 
 		//Textures(image)
 		Texture Finish("finish.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
@@ -222,21 +233,27 @@ int main() {
 		PlayButton.texUnit(shaderProgram, "tex4", 4);
 		Texture ExitButton("ExitButton.png", GL_TEXTURE_2D, GL_TEXTURE5, GL_RGBA, GL_UNSIGNED_BYTE);
 		ExitButton.texUnit(shaderProgram, "tex5", 5);
-		Texture SettingsButton("SettingsButton.png", GL_TEXTURE_2D, GL_TEXTURE5, GL_RGBA, GL_UNSIGNED_BYTE);
-		SettingsButton.texUnit(shaderProgram, "tex6", 5);
+		Texture SettingsButton("SettingsButton.png", GL_TEXTURE_2D, GL_TEXTURE6, GL_RGBA, GL_UNSIGNED_BYTE);
+		SettingsButton.texUnit(shaderProgram, "tex6", 6);
+		Texture Resolution800x600Button("800x600Button.png", GL_TEXTURE_2D, GL_TEXTURE7, GL_RGBA, GL_UNSIGNED_BYTE);
+		Resolution800x600Button.texUnit(shaderProgram, "tex7", 7);
+		Texture Resolution1280x720Button("1280x720Button.png", GL_TEXTURE_2D, GL_TEXTURE8, GL_RGBA, GL_UNSIGNED_BYTE);
+		Resolution1280x720Button.texUnit(shaderProgram, "tex8", 8);
+		Texture Resolution1920x1080Button("1920x1080Button.png", GL_TEXTURE_2D, GL_TEXTURE9, GL_RGBA, GL_UNSIGNED_BYTE);
+		Resolution1920x1080Button.texUnit(shaderProgram, "tex9", 9);
 
 		glEnable(GL_DEPTH_TEST);
 
 		glm::vec3 startCamPos = glm::vec3(24.0f, 0.0f, 24.0f);
 		glm::vec3 startOrientation = glm::vec3(0.0f, 0.0f, -0.1f);
+		glm::vec3 defaultCamPos = glm::vec3(0.0f, 0.0f, 2.0f);
 
 		double lastTime = glfwGetTime();
-		
 
 		Camera camera(width, height, startCamPos);
-		Camera MenuCamera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
-		Camera SettingsCamera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
-		Camera FinishCamera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
+		Camera MenuCamera(width, height, defaultCamPos);
+		Camera SettingsCamera(width, height, defaultCamPos);
+		Camera FinishCamera(width, height, defaultCamPos);
 
 		GLenum error = glGetError();
 		if (error != GL_NO_ERROR) {
@@ -251,6 +268,7 @@ while (!glfwWindowShouldClose(window))
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	double currentTime;
+
 
 	if (MenuCamera.PlayButtonClick(window)) // Если флаг установлен в true, отображаем меню
 	{
@@ -286,20 +304,64 @@ while (!glfwWindowShouldClose(window))
 				SettingsMenuVAO.Bind();
 				glDrawElements(GL_TRIANGLES, SizeSettingsMenuIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 
-				ExitButton.Bind();
-				ResolutionButtonVAO.Bind();
-				glDrawElements(GL_TRIANGLES, SizeResolutionButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
+				Resolution800x600Button.Bind();
+				Resolution800x600ButtonVAO.Bind();
+				glDrawElements(GL_TRIANGLES, SizeResolution800x600ButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 
+				Resolution1280x720Button.Bind();
+				Resolution1280x720ButtonVAO.Bind();
+				glDrawElements(GL_TRIANGLES, SizeResolution1280x720ButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 
-				ExitButton.Bind();
-				Resolution2ButtonVAO.Bind();
-				glDrawElements(GL_TRIANGLES, SizeResolution2ButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
-				if (SettingsCamera.ResolutionButtonClick(window))
+				Resolution1920x1080Button.Bind();
+				Resolution1920x1080ButtonVAO.Bind();
+				glDrawElements(GL_TRIANGLES, SizeResolution1920x1080ButtonIndices / sizeof(int), GL_UNSIGNED_INT, 0);
+
+				if (SettingsCamera.Resolution800x600ButtonClick(window))
 				{
-					unsigned int width = 800, height = 600;
-					glfwSetWindowSize(window, width, height);	
+					width = 800;
+					height = 600;
+					glfwSetWindowSize(window, width, height);
 					glViewport(0, 0, width, height);
-				}
+					camera.width = 800;
+					camera.height = 600;
+					MenuCamera.width = 800;
+					MenuCamera.height = 600;
+					SettingsCamera.width = 800;
+					SettingsCamera.height = 600;
+					FinishCamera.width = 800;
+					FinishCamera.height = 600;
+				};
+				if (SettingsCamera.Resolution1280x720ButtonClick(window))
+				{
+					width = 1280;
+					height = 720;
+					glfwSetWindowSize(window, width, height);
+					glViewport(0, 0, width, height);
+					camera.width = 1280;
+					camera.height = 720;
+					MenuCamera.width = 1280;
+					MenuCamera.height = 720;
+					SettingsCamera.width = 1280;
+					SettingsCamera.height = 720;
+					FinishCamera.width = 1280;
+					FinishCamera.height = 720;
+				};
+				if (SettingsCamera.Resolution1920x1080ButtonClick(window))
+				{
+					width = 1920;
+					height = 1080;
+					glfwSetWindowSize(window, width, height);
+					glViewport(0, 0, width, height);
+					camera.width = 1920;
+					camera.height = 1080;
+					MenuCamera.width = 1920;
+					MenuCamera.height = 1080;
+					SettingsCamera.width = 1920;
+					SettingsCamera.height = 1080;
+					FinishCamera.width = 1920;
+					FinishCamera.height = 1080;
+				};
+				
 		}
 	}
 	
@@ -386,12 +448,15 @@ while (!glfwWindowShouldClose(window))
 	WallVAO.Delete();
 	WallVBO.Delete();
 	WallEBO.Delete();
-	ResolutionButtonVAO.Delete();
-	ResolutionButtonVBO.Delete();
-	ResolutionButtonEBO.Delete();
-	Resolution2ButtonVAO.Delete();
-	Resolution2ButtonVBO.Delete();
-	Resolution2ButtonEBO.Delete();
+	Resolution800x600ButtonVAO.Delete();
+	Resolution800x600ButtonVBO.Delete();
+	Resolution800x600ButtonEBO.Delete();
+	Resolution1280x720ButtonVAO.Delete();
+	Resolution1280x720ButtonVBO.Delete();
+	Resolution1280x720ButtonEBO.Delete();
+	Resolution1920x1080ButtonVAO.Delete();
+	Resolution1920x1080ButtonVBO.Delete();
+	Resolution1920x1080ButtonEBO.Delete();
 	shaderProgram.Delete();
 	Finish.Delete();
 	Floor.Delete();
@@ -400,6 +465,9 @@ while (!glfwWindowShouldClose(window))
 	PlayButton.Delete();
 	ExitButton.Delete();
 	SettingsButton.Delete();
+	Resolution800x600Button.Delete();
+	Resolution1280x720Button.Delete();
+	Resolution1920x1080Button.Delete();
 
 
 	glfwDestroyWindow(window);

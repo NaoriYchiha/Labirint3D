@@ -31,6 +31,9 @@ public:
 	int width;
 	int height;
 
+	double xPos;
+	double yPos;
+
 	float speed = 0.03f;
 	float sensivity = 100.0f;
 
@@ -41,7 +44,9 @@ public:
 	bool PlayButtonClick(GLFWwindow* window);
 	bool SettingsButtonClick(GLFWwindow* window);
 	bool ExitButtonClick(GLFWwindow* window);
-	bool ResolutionButtonClick(GLFWwindow* window);
+	bool Resolution800x600ButtonClick(GLFWwindow* window);
+	bool Resolution1280x720ButtonClick(GLFWwindow* window);
+	bool Resolution1920x1080ButtonClick(GLFWwindow* window);
 };
 
 #endif

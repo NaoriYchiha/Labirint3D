@@ -164,6 +164,9 @@
     <ClInclude Include="VBO.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="1280x720Button.png" />
+    <Image Include="1920x1080Button.png" />
+    <Image Include="800x600Button.png" />
     <Image Include="ExitButton.png" />
     <Image Include="PlayButton.png" />
     <Image Include="floor.png" />

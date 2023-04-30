@@ -11,6 +11,9 @@ uniform sampler2D tex3;
 uniform sampler2D tex4;
 uniform sampler2D tex5;
 uniform sampler2D tex6;
+uniform sampler2D tex7;
+uniform sampler2D tex8;
+uniform sampler2D tex9;
 
 void main()
 {
@@ -20,7 +23,10 @@ void main()
    vec4 tex3Color = texture(tex3, texCoord);
    vec4 tex4Color = texture(tex4, texCoord); 
    vec4 tex5Color = texture(tex5, texCoord);
-   vec4 tex6Color = texture(tex6, texCoord);
+   vec4 tex6Color = texture(tex6, texCoord); 
+   vec4 tex7Color = texture(tex7, texCoord); 
+   vec4 tex8Color = texture(tex8, texCoord); 
+   vec4 tex9Color = texture(tex9, texCoord);
 
    vec4 mixColor1 = mix(tex0Color, tex1Color, step(0, texCoord.y));
    vec4 mixColor2 = mix(mixColor1, tex2Color, step(0, texCoord.x));
@@ -28,5 +34,8 @@ void main()
    vec4 mixColor4 = mix(mixColor3, tex4Color, step(0, texCoord.x));
    vec4 mixColor5 = mix(mixColor4, tex5Color, step(0, texCoord.y));
    vec4 mixColor6 = mix(mixColor5, tex6Color, step(0, texCoord.x));
-   FragColor = mixColor6;
+   vec4 mixColor7 = mix(mixColor6, tex7Color, step(0, texCoord.y));
+   vec4 mixColor8 = mix(mixColor7, tex8Color, step(0, texCoord.x));
+   vec4 mixColor9 = mix(mixColor8, tex9Color, step(0, texCoord.y));
+   FragColor = mixColor9;
 };

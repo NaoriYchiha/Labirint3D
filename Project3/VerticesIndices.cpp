@@ -1172,7 +1172,7 @@ GLuint FinishIndices[] =
 	 0, 3, 2
 };
 
-GLfloat ResolutionButtonVertices[] =
+GLfloat Resolution800x600ButtonVertices[] =
 {
 	-0.8f, 0.55f, 0.03f,			0.0f, 1.0f, 0.0f,		0.0f, 0.0f,//0
 	-0.8f, 0.7f, 0.03f,				0.0f, 1.0f, 0.0f,		0.0f, 1.0f,//1
@@ -1180,13 +1180,13 @@ GLfloat ResolutionButtonVertices[] =
 	-0.55f, 0.55f, 0.03f,			0.0f, 1.0f, 0.0f,		1.0f, 0.0f//3
 };
 
-GLuint ResolutionButtonIndices[] =
+GLuint Resolution800x600ButtonIndices[] =
 {
 	 0, 2, 1,
 	 0, 3, 2
 };
 
-GLfloat Resolution2ButtonVertices[] =
+GLfloat Resolution1280x720ButtonVertices[] =
 {
 	-0.5f, 0.55f, 0.03f,			0.0f, 1.0f, 0.0f,		0.0f, 0.0f,//0
 	-0.5f, 0.7f, 0.03f,				0.0f, 1.0f, 0.0f,		0.0f, 1.0f,//1
@@ -1194,7 +1194,21 @@ GLfloat Resolution2ButtonVertices[] =
 	-0.25f, 0.55f, 0.03f,			0.0f, 1.0f, 0.0f,		1.0f, 0.0f//3
 };
 
-GLuint Resolution2ButtonIndices[] =
+GLuint Resolution1280x720ButtonIndices[] =
+{
+	 0, 2, 1,
+	 0, 3, 2
+};
+
+GLfloat Resolution1920x1080ButtonVertices[] =
+{
+	-0.2f, 0.55f, 0.03f,			0.0f, 1.0f, 0.0f,		0.0f, 0.0f,//0
+	-0.2f, 0.7f, 0.03f,				0.0f, 1.0f, 0.0f,		0.0f, 1.0f,//1
+	0.05f, 0.7f, 0.03f,				0.0f, 1.0f, 0.0f,		1.0f, 1.0f,//2
+	0.05f, 0.55f, 0.03f,			0.0f, 1.0f, 0.0f,		1.0f, 0.0f//3
+};
+
+GLuint Resolution1920x1080ButtonIndices[] =
 {
 	 0, 2, 1,
 	 0, 3, 2
@@ -1222,11 +1236,14 @@ const GLuint SizePlayButtonIndices = sizeof(PlayButtonIndices);
 const GLfloat SizeExitButtonVertices = sizeof(ExitButtonVertices);
 const GLuint SizeExitButtonIndices = sizeof(ExitButtonIndices);
 
-const GLfloat SizeResolution2ButtonVertices = sizeof(Resolution2ButtonVertices);
-const GLuint SizeResolution2ButtonIndices = sizeof(Resolution2ButtonIndices);
+const GLfloat SizeResolution1280x720ButtonVertices = sizeof(Resolution1280x720ButtonVertices);
+const GLuint SizeResolution1280x720ButtonIndices = sizeof(Resolution1280x720ButtonIndices);
 
-const GLfloat SizeResolutionButtonVertices = sizeof(ResolutionButtonVertices);
-const GLuint SizeResolutionButtonIndices = sizeof(ResolutionButtonIndices);
+const GLfloat SizeResolution800x600ButtonVertices = sizeof(Resolution800x600ButtonVertices);
+const GLuint SizeResolution800x600ButtonIndices = sizeof(Resolution800x600ButtonIndices);
+
+const GLfloat SizeResolution1920x1080ButtonVertices = sizeof(Resolution1920x1080ButtonVertices);
+const GLuint SizeResolution1920x1080ButtonIndices = sizeof(Resolution1920x1080ButtonIndices);
 
 const GLfloat SizeSettingsButtonVertices = sizeof(SettingsButtonVertices);
 const GLuint SizeSettingsButtonIndices = sizeof(SettingsButtonIndices);

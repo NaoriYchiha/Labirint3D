@@ -20,7 +20,6 @@ void Camera::Matrix(float FOVdeg, float nearPlane, float farPlane, Shader& shade
 
 void Camera::Inputs(GLFWwindow* window) {
 
-
 	float jumpSpeed = 0.03f;
 	//granici polya
 	if (Position.x < -24.8f) Position.x = -24.8f;
@@ -221,9 +220,6 @@ void Camera::Inputs(GLFWwindow* window) {
 	if (Position.x > 21.8f && Position.x < 21.9f && Position.z > 2.9f && Position.z < 8.1f) { Position.x = 21.8f; }
 	if (Position.x > 23.6f && Position.x < 23.7f && Position.z > 2.9f && Position.z < 8.1f) { Position.x = 23.7f; }
 
-
-
-
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 	{
 		Position += speed * Orientation;
@@ -298,7 +294,46 @@ void Camera::Inputs(GLFWwindow* window) {
 		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 		firstClick = true;
 	}
-	
+}
+
+bool Camera::Resolution800x600ButtonClick(GLFWwindow* window) {
+
+
+	glfwGetCursorPos(window, &xPos, &yPos);
+	bool isMouseButtonPressed = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
+
+	if (isMouseButtonPressed && !m_isSettingsMenuVisible && xPos >= width * 0.01f && xPos <= width * 0.165f && yPos >= height * 0.05f && yPos <= height * 0.145f)
+	{
+		return true;
+	}
+	else
+		return false;
+}
+
+bool Camera::Resolution1280x720ButtonClick(GLFWwindow* window){
+
+	glfwGetCursorPos(window, &xPos, &yPos);
+	bool isMouseButtonPressed = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
+
+	if (isMouseButtonPressed && !m_isSettingsMenuVisible && xPos >= width * 0.175f && xPos <= width * 0.33f && yPos >= height * 0.05f && yPos <= height * 0.145f)
+	{
+		return true;
+	}
+	else
+		return false;
+}
+
+bool Camera::Resolution1920x1080ButtonClick(GLFWwindow* window) {
+
+	glfwGetCursorPos(window, &xPos, &yPos);
+	bool isMouseButtonPressed = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
+
+	if (isMouseButtonPressed && !m_isSettingsMenuVisible && xPos >= width * 0.34f && xPos <= width * 0.495f && yPos >= height * 0.05f && yPos <= height * 0.145f)
+	{
+		return true;
+	}
+	else
+		return false;
 }
 
 bool Camera::player_reached_finish() {
@@ -312,11 +347,11 @@ bool Camera::player_reached_finish() {
 
 
 bool Camera::PlayButtonClick(GLFWwindow* window) {
-	double xPos, yPos;
+
 	glfwGetCursorPos(window, &xPos, &yPos);
 
 	bool isMouseButtonPressed = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
-
+	
 	if (isMouseButtonPressed && !m_wasMouseButtonPressed && m_isMenuVisible && !m_isSettingsMenuVisible && xPos >= width * 0.4088f && xPos <= width * 0.56f && yPos >= height * 0.435f && yPos <= height * 0.514f)
 	{
 		 m_isMenuVisible = !m_isMenuVisible;
@@ -332,10 +367,9 @@ bool Camera::PlayButtonClick(GLFWwindow* window) {
 
 bool Camera::SettingsButtonClick(GLFWwindow* window) {
 
-	double xPos, yPos;
 	glfwGetCursorPos(window, &xPos, &yPos);
 	bool isMouseButtonPressed = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
-
+	
 	if (isMouseButtonPressed && !m_wasSettingsMouseButtonPressed && !m_isSettingsMenuVisible && xPos >= width * 0.4088f && xPos <= width * 0.56f && yPos >= height * 0.593f && yPos <= height * 0.671f)
 	{
 		m_isSettingsMenuVisible = !m_isSettingsMenuVisible;
@@ -347,34 +381,18 @@ bool Camera::SettingsButtonClick(GLFWwindow* window) {
 	m_wasMouseButtonPressed = isMouseButtonPressed;
 
 	return m_isSettingsMenuVisible;
-
 }
 
 bool Camera::ExitButtonClick(GLFWwindow* window) {
 
-	double xPos, yPos;
 	glfwGetCursorPos(window, &xPos, &yPos);
 	bool isMouseButtonPressed = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
-
+	
 	if (isMouseButtonPressed && m_isMenuVisible && !m_isSettingsMenuVisible && xPos >= width * 0.4088f && xPos <= width * 0.56f && yPos >= height * 0.756f && yPos <= height * 0.841f)
 	{
 		return true;
 	}
 	else
 		return false;
-	
 }
 
-bool Camera::ResolutionButtonClick(GLFWwindow* window) {
-
-	double xPos, yPos;
-	glfwGetCursorPos(window, &xPos, &yPos);
-	bool isMouseButtonPressed = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
-
-	if (isMouseButtonPressed && !m_isSettingsMenuVisible && xPos >= width * 0.4088f && xPos <= width * 0.56f && yPos >= height * 0.435f && yPos <= height * 0.514f)
-	{
-		return true;
-	}
-	else
-		return false;
-}

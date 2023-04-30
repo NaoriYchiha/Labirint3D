@@ -111,5 +111,14 @@
     <Image Include="SettingsButton.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
+    <Image Include="800x600Button.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="1280x720Button.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="1920x1080Button.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>
