@@ -279,8 +279,6 @@ while (!glfwWindowShouldClose(window))
 	glClearColor(0.7f, 0.74f, 1.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	double currentTime;
-
 
 	if (MenuCamera.PlayButtonClick(window)) // Если флаг установлен в true, отображаем меню
 	{
@@ -362,53 +360,36 @@ while (!glfwWindowShouldClose(window))
 
 				if (SettingsCamera.Resolution800x600ButtonClick(window))
 				{
-					width = 800;
-					height = 600;
+					width = 800, height = 600;
 					glfwSetWindowSize(window, width, height);
 					glViewport(0, 0, width, height);
-					camera.width = 800;
-					camera.height = 600;
-					MenuCamera.width = 800;
-					MenuCamera.height = 600;
-					SettingsCamera.width = 800;
-					SettingsCamera.height = 600;
-					FinishCamera.width = 800;
-					FinishCamera.height = 600;
+					camera.width = 800, camera.height = 600;
+					MenuCamera.width = 800, MenuCamera.height = 600;
+					SettingsCamera.width = 800, SettingsCamera.height = 600;
+					FinishCamera.width = 800, FinishCamera.height = 600;
 				};
 				if (SettingsCamera.Resolution1280x720ButtonClick(window))
 				{
-					width = 1280;
-					height = 720;
+					width = 1280, height = 720;
 					glfwSetWindowSize(window, width, height);
 					glViewport(0, 0, width, height);
-					camera.width = 1280;
-					camera.height = 720;
-					MenuCamera.width = 1280;
-					MenuCamera.height = 720;
-					SettingsCamera.width = 1280;
-					SettingsCamera.height = 720;
-					FinishCamera.width = 1280;
-					FinishCamera.height = 720;
+					camera.width = 1280, camera.height = 720;
+					MenuCamera.width = 1280, MenuCamera.height = 720;
+					SettingsCamera.width = 1280, SettingsCamera.height = 720;
+					FinishCamera.width = 1280, FinishCamera.height = 720;
 				};
 				if (SettingsCamera.Resolution1920x1080ButtonClick(window))
 				{
-					width = 1920;
-					height = 1080;
+					width = 1920, height = 1080;
 					glfwSetWindowSize(window, width, height);
 					glViewport(0, 0, width, height);
-					camera.width = 1920;
-					camera.height = 1080;
-					MenuCamera.width = 1920;
-					MenuCamera.height = 1080;
-					SettingsCamera.width = 1920;
-					SettingsCamera.height = 1080;
-					FinishCamera.width = 1920;
-					FinishCamera.height = 1080;
+					camera.width = 1920, camera.height = 1080;
+					MenuCamera.width = 1920, MenuCamera.height = 1080;
+					SettingsCamera.width = 1920, SettingsCamera.height = 1080;
+					FinishCamera.width = 1920, FinishCamera.height = 1080;
 				};
-				
 		}
 	}
-	
 	else // Если флаг установлен в false, отображаем игровой мир
 	{
 		double currentTime = glfwGetTime();
