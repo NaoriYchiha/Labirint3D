@@ -62,6 +62,7 @@
     <None Include="default.frag">
       <Filter>Resource Files\Shaders</Filter>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ShaderClass.h">

@@ -23,13 +23,15 @@ unsigned int width = 1920, height = 1080;
 int wins = 0;
 int loses = 0;
 
+int com1 = 2;
+
 GLFWimage load_icon(const char* filename)
 {
 	GLFWimage image;
-	image.pixels = stbi_load(filename, &image.width, &image.height, NULL, 4);
+	image.pixels = stbi_load(filename, &image.width, &image.height, &com1, 0);
 	return image;
 }
-	
+
 int main() {
 
 	glfwInit();
@@ -428,7 +430,6 @@ while (!glfwWindowShouldClose(window))
 			Wall.Bind();
 			WallVAO.Bind();
 			glDrawElements(GL_TRIANGLES, SizeWallIndices / sizeof(int), GL_UNSIGNED_INT, 0);
-			
 		}
 	}
 

@@ -222,7 +222,7 @@ void Camera::Inputs(GLFWwindow* window) {
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 	{
-		Position += speed * Orientation;
+		Position += speed * 2 *  Orientation;
 		if (Position.y > 1.5f) Position -= jumpSpeed * 2.0f * Up;
 	}
 	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
@@ -232,7 +232,7 @@ void Camera::Inputs(GLFWwindow* window) {
 	}
 	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
 	{
-		Position += speed * -Orientation;
+		Position += speed * 2 * -Orientation;
 		if (Position.y > 1.5f) Position -= jumpSpeed * 2.0f * Up;
 	}
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
@@ -247,7 +247,7 @@ void Camera::Inputs(GLFWwindow* window) {
 	}
 	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_RELEASE)
 	{
-		Position -= jumpSpeed * Up * Up * 2.0f;
+		Position -= jumpSpeed * Up * Up  * 2.0f;
 	}
 	if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
 	{
@@ -255,7 +255,7 @@ void Camera::Inputs(GLFWwindow* window) {
 	}
 	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
 	{
-		speed = 0.04f;
+		speed = 0.05f;
 	}
 	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_RELEASE)
 	{
@@ -381,8 +381,6 @@ bool Camera::player_reached_finish() {
 		return false;
 }
 
-
-
 bool Camera::PlayButtonClick(GLFWwindow* window) {
 
 	glfwGetCursorPos(window, &xPos, &yPos);
@@ -469,4 +467,3 @@ bool Camera::ExitButtonMouse(GLFWwindow* window) {
 	else
 		return false;
 }
-

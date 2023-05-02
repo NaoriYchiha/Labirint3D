@@ -24,7 +24,7 @@ public:
 
 	glm::vec3 Position;
 	glm::vec3 Orientation = glm::vec3(0.0f, 0.0f, -0.1f);
-	glm::vec3 Up = glm::vec3(0.0f, 0.1f, 0.0f);
+	glm::vec3 Up = glm::vec3(0.0f, 0.22f, 0.0f);
 
 	bool firstClick = true;
 
@@ -34,7 +34,7 @@ public:
 	double xPos;
 	double yPos;
 
-	float speed = 0.03f;
+	float speed = 0.04f;
 	float sensivity = 100.0f;
 
 	Camera(int width, int height, glm::vec3 position);

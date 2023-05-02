@@ -1,1 +1,3 @@
+Finish time: 34.9942 seconds.
+Wins: 1
 Loses: 1
