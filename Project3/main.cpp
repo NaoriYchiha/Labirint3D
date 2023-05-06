@@ -43,7 +43,7 @@ int main() {
 	
 
 	//Create a window with name and height/weight of window
-	GLFWwindow* window = glfwCreateWindow(width, height, "Love", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(width, height, "Crossing Paths: Escape from the Labyrinth", NULL, NULL);
 	if (window == NULL) {
 		std::cout << "Failed to create glfw window" << std::endl;
 		glfwTerminate();
@@ -255,19 +255,22 @@ int main() {
 		Resolution1280x720ButtonWhite.texUnit(shaderProgram, "tex14", 14);
 		Texture Resolution1920x1080ButtonWhite("LabTextures/1920x1080Button1.png", GL_TEXTURE_2D, GL_TEXTURE15, GL_RGBA, GL_UNSIGNED_BYTE);
 		Resolution1920x1080ButtonWhite.texUnit(shaderProgram, "tex15", 15);
+		Texture FinishScreen("LabTextures/FinishScreen.png", GL_TEXTURE_2D, GL_TEXTURE16, GL_RGBA, GL_UNSIGNED_BYTE);
+		FinishScreen.texUnit(shaderProgram, "tex16", 16);
 
 		glEnable(GL_DEPTH_TEST);
 
 		glm::vec3 startCamPos = glm::vec3(24.0f, 0.0f, 24.0f);
 		glm::vec3 startOrientation = glm::vec3(0.0f, 0.0f, -0.1f);
 		glm::vec3 defaultCamPos = glm::vec3(0.0f, 0.0f, 2.0f);
+		glm::vec3 FinishCamPos = glm::vec3(0.0f, 0.0f, 2.4f);
 
 		double lastTime = glfwGetTime();
 
 		Camera camera(width, height, startCamPos);
 		Camera MenuCamera(width, height, defaultCamPos);
 		Camera SettingsCamera(width, height, defaultCamPos);
-		Camera FinishCamera(width, height, defaultCamPos);
+		Camera FinishCamera(width, height, FinishCamPos);
 
 		GLenum error = glGetError();
 		if (error != GL_NO_ERROR) {
@@ -400,7 +403,7 @@ while (!glfwWindowShouldClose(window))
 			shaderProgram.Activate();
 			FinishCamera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
 
-			Finish.Bind();
+			FinishScreen.Bind();
 			FinishVAO.Bind();
 			glDrawElements(GL_TRIANGLES, SizeFinishIndices / sizeof(int), GL_UNSIGNED_INT, 0);
 

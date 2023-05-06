@@ -20,6 +20,7 @@ uniform sampler2D tex12;
 uniform sampler2D tex13;
 uniform sampler2D tex14;
 uniform sampler2D tex15;
+uniform sampler2D tex16;
 
 void main()
 {
@@ -39,6 +40,7 @@ void main()
    vec4 tex13Color = texture(tex13, texCoord); 
    vec4 tex14Color = texture(tex14, texCoord);  
    vec4 tex15Color = texture(tex15, texCoord);
+   vec4 tex16Color = texture(tex16, texCoord);
 
    vec4 mixColor1 = mix(tex0Color, tex1Color, step(0, texCoord.y));
    vec4 mixColor2 = mix(mixColor1, tex2Color, step(0, texCoord.x));
@@ -55,5 +57,6 @@ void main()
    vec4 mixColor13 = mix(mixColor12, tex13Color, step(0, texCoord.y));
    vec4 mixColor14 = mix(mixColor13, tex14Color, step(0, texCoord.x));
    vec4 mixColor15 = mix(mixColor14, tex15Color, step(0, texCoord.y));
-   FragColor = mixColor15;
+   vec4 mixColor16 = mix(mixColor15, tex16Color, step(0, texCoord.x));
+   FragColor = mixColor16;
 };
