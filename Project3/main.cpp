@@ -7,7 +7,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-
 #include "Texture.h"
 #include "ShaderClass.h"
 #include "VBO.h"
@@ -393,6 +392,7 @@ while (!glfwWindowShouldClose(window))
 					SettingsCamera.width = 1920, SettingsCamera.height = 1080;
 					FinishCamera.width = 1920, FinishCamera.height = 1080;
 				};
+				
 		}
 	}
 	else // Если флаг установлен в false, отображаем игровой мир

@@ -391,7 +391,7 @@ bool Camera::PlayButtonClick(GLFWwindow* window) {
 	{
 		 m_isMenuVisible = !m_isMenuVisible;
 	}
-	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS && !m_isMenuVisible)
 	{
 		m_isMenuVisible = !m_isMenuVisible;
 	}
