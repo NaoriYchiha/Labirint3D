@@ -397,7 +397,7 @@ bool Camera::PlayButtonClick(GLFWwindow* window) {
 	}
 	m_wasMouseButtonPressed = isMouseButtonPressed;
 
-	return m_isMenuVisible;
+	return !m_isMenuVisible;
 }
 
 bool Camera::PlayButtonMouse(GLFWwindow* window) {

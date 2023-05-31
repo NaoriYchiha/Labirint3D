@@ -1,2 +1,14 @@
-﻿  VerticesIndices.cpp
+﻿  main.cpp
+H:\программирование\c++\Labirint3D\Project3\main.cpp(70,39): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
+H:\программирование\c++\Labirint3D\Project3\main.cpp(82,31): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
+H:\программирование\c++\Labirint3D\Project3\main.cpp(96,29): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
+H:\программирование\c++\Labirint3D\Project3\main.cpp(110,29): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
+H:\программирование\c++\Labirint3D\Project3\main.cpp(123,45): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
+H:\программирование\c++\Labirint3D\Project3\main.cpp(136,33): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
+H:\программирование\c++\Labirint3D\Project3\main.cpp(149,41): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
+H:\программирование\c++\Labirint3D\Project3\main.cpp(162,41): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
+H:\программирование\c++\Labirint3D\Project3\main.cpp(175,49): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
+H:\программирование\c++\Labirint3D\Project3\main.cpp(188,67): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
+H:\программирование\c++\Labirint3D\Project3\main.cpp(201,69): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
+H:\программирование\c++\Labirint3D\Project3\main.cpp(214,71): warning C4244: 'argument': conversion from 'const GLfloat' to 'GLsizeiptr', possible loss of data
   Project3.vcxproj -> H:\программирование\c++\Labirint3D\Project3\x64\Debug\Project3.exe

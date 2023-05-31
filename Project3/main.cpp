@@ -284,7 +284,7 @@ while (!glfwWindowShouldClose(window))
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 
-	if (MenuCamera.PlayButtonClick(window)) // Если флаг установлен в true, отображаем меню
+	if (!MenuCamera.PlayButtonClick(window)) // Если флаг установлен в false, отображаем меню
 	{
 		shaderProgram.Activate();
 		MenuCamera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
@@ -395,7 +395,7 @@ while (!glfwWindowShouldClose(window))
 				
 		}
 	}
-	else // Если флаг установлен в false, отображаем игровой мир
+	else // Если флаг установлен в TRUE, отображаем игровой мир
 	{
 		double currentTime = glfwGetTime();
 		if (camera.player_reached_finish())
